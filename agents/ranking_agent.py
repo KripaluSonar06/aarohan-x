@@ -1,26 +1,28 @@
 """
-Ranking Agent: uses RecoveryRanker to compute recovery probability and expected values.
+Ranking Agent: uses RecoveryRanker for failed payments and CheckoutRanker for checkout events.
 """
+
 from typing import Dict, Any
 from datetime import datetime, timezone
 from models.ranker_model import RecoveryRanker
+from models.checkout_ranker import CheckoutRanker
 from core.state import EventClass
-from config.channel_costs import get_channel_cost
 from config.logger import logger
 
-# Singleton ranker (will be loaded or trained elsewhere)
-ranker = RecoveryRanker()
+# Singleton instances
+recovery_ranker = RecoveryRanker()
+checkout_ranker = CheckoutRanker()
 
-def build_features(state: Dict[str, Any]) -> Dict[str, Any]:
-    """Extract features from state for the ranker."""
+def build_failed_payment_features(state: Dict[str, Any]) -> Dict[str, Any]:
+    """Features for the failed payment ranker."""
     diagnosed = state.get("diagnosed_class")
     return {
         "amount_paise": state.get("amount_paise", 0),
         "day_of_month": datetime.now(timezone.utc).day,
         "cycle_number": state.get("cycle", 0),
         "prior_broken_ptps": 1 if state.get("ptp_broken", False) else 0,
-        "customer_tenure_days": 365,  # placeholder; could be from profile
-        "last_success_days_ago": 30,  # placeholder
+        "customer_tenure_days": 365,  # placeholder
+        "last_success_days_ago": 30,
         "is_funds_class": 1 if diagnosed == EventClass.FUNDS else 0,
         "is_downtime_class": 1 if diagnosed == EventClass.DOWNTIME else 0,
         "is_mandate_dead": 1 if diagnosed == EventClass.MANDATE_DEAD else 0,
@@ -30,18 +32,28 @@ def build_features(state: Dict[str, Any]) -> Dict[str, Any]:
         "has_prior_contact": 1 if state.get("attempts_contact", 0) > 0 else 0,
     }
 
+def build_checkout_features(state: Dict[str, Any]) -> Dict[str, Any]:
+    """Features for checkout abandonment ranker."""
+    return {
+        "time_since_abandonment_minutes": state.get("time_since_abandonment_minutes", 999),
+        "return_visit_signal": state.get("return_visit_signal", False),
+        "amount_paise": state.get("amount_paise", 0),
+        "discount_eligible": state.get("discount_eligible", False),
+    }
+
 def rank(state: Dict[str, Any]) -> Dict[str, Any]:
     """Compute recovery probability and attach to state."""
     state["node_history"].append("rank")
-    features = build_features(state)
-    prob = ranker.predict_proba(features)
-    state["recovery_probability"] = prob
-    state["model_confidence"] = 0.8  # could be based on data coverage; placeholder
+    if state.get("event_type") == "checkout_abandoned":
+        features = build_checkout_features(state)
+        prob = checkout_ranker.predict_proba(features)
+        state["model_confidence"] = 0.7  # heuristic
+    else:
+        features = build_failed_payment_features(state)
+        prob = recovery_ranker.predict_proba(features)
+        state["model_confidence"] = 0.8  # placeholder
 
-    # Compute gross expected value (amount * prob)
+    state["recovery_probability"] = prob
     amount_inr = state.get("amount_paise", 0) / 100.0
     state["expected_gross_value"] = prob * amount_inr
-
-    # We'll compute net_expected_value in policy agent after selecting action,
-    # but we can precompute here for allowed actions later.
     return state
