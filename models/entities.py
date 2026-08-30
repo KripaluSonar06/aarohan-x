@@ -1,7 +1,8 @@
 """
 SQLAlchemy ORM models for Aarohan-X.
+Defines CustomerProfile, RecoveryEvent, LedgerEntry, and PTPRecord tables.
 """
-from sqlalchemy import Column, String, Integer, Float, DateTime, Boolean, JSON, ForeignKey, Text
+from sqlalchemy import Column, String, Integer, Float, DateTime, Boolean, JSON, ForeignKey
 from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 from utils.db import Base
@@ -20,8 +21,10 @@ class CustomerProfile(Base):
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
+    # Relationships
     events = relationship("RecoveryEvent", back_populates="customer")
     ptp_records = relationship("PTPRecord", back_populates="customer")
+
 
 class RecoveryEvent(Base):
     __tablename__ = "recovery_events"
@@ -52,7 +55,7 @@ class RecoveryEvent(Base):
     discount_eligible = Column(Boolean, default=False)
 
     # Diagnosis
-    diagnosed_class = Column(String, nullable=True)
+    diagnosed_class = Column(String, nullable=True)       # string of EventClass enum
     diagnosis_confidence = Column(Float, nullable=True)
     diagnosis_source = Column(String, nullable=True)     # "rules" | "llm" | "dl"
 
@@ -73,7 +76,7 @@ class RecoveryEvent(Base):
     broken_ptp_rate_global = Column(Float, nullable=True)
 
     # Status
-    status = Column(String, default="active")            # active|recovered|stopped|escalated|needs_human
+    status = Column(String, default="active")            # active|recovered|stopped|escalated|needs_human|waiting
     recovered_amount_paise = Column(Integer, default=0)
     stopped_reason = Column(String, nullable=True)
 
@@ -82,6 +85,23 @@ class RecoveryEvent(Base):
     ledger = relationship("LedgerEntry", back_populates="event", cascade="all, delete-orphan")
     ptp_records = relationship("PTPRecord", back_populates="event")
 
+    def to_dict(self):
+        """Return a dict representation for UI."""
+        return {
+            "event_id": self.id,
+            "event_type": self.event_type,
+            "merchant_name": self.merchant_name,
+            "customer_name": self.customer_name,
+            "amount_paise": self.amount_paise,
+            "diagnosed_class": self.diagnosed_class,
+            "recovery_probability": self.recovery_probability,
+            "playbook_action": self.playbook_action,
+            "status": self.status,
+            "recovered_amount_paise": self.recovered_amount_paise,
+            "ledger_count": len(self.ledger) if self.ledger else 0,
+        }
+
+
 class LedgerEntry(Base):
     __tablename__ = "ledger_entries"
 
@@ -89,11 +109,12 @@ class LedgerEntry(Base):
     event_id = Column(String, ForeignKey("recovery_events.id"), nullable=False)
     timestamp = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     action = Column(String, nullable=False)              # e.g., "silent_retry_success", "text_nudge_sent"
-    detail = Column(JSON, nullable=True)                 # extra context
+    detail = Column(JSON, nullable=True)                 # extra context as JSON
     idempotency_key = Column(String, nullable=True)
     cost = Column(Float, default=0.0)
 
     event = relationship("RecoveryEvent", back_populates="ledger")
+
 
 class PTPRecord(Base):
     __tablename__ = "ptp_records"
