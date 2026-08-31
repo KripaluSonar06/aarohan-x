@@ -4,7 +4,7 @@ Supports optional interrupts before money-touching actions for human approval.
 """
 
 from langgraph.graph import StateGraph, END
-from langgraph.checkpoint import MemorySaver
+from langgraph.checkpoint.memory import MemorySaver
 from typing import Dict, Any, Literal
 
 # Import agents

@@ -2,10 +2,11 @@
 Synthetic data generator for Aarohan-X.
 Creates a realistic mixed batch of failed payments and checkout abandonments with ground truth.
 """
+
 import random
 import csv
 import json
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 from config.settings import settings
 
@@ -15,7 +16,6 @@ class SyntheticGenerator:
 
     def generate_batch(self, size=150, output_path=None):
         events = []
-        # Define class distribution (including checkout)
         classes = {
             "funds": 35,
             "downtime": 20,
@@ -33,7 +33,6 @@ class SyntheticGenerator:
                 event_counter += 1
                 event = self._create_event(event_counter, class_name)
                 events.append(event)
-        # Save to CSV if output_path provided
         if output_path:
             self._save_to_csv(events, output_path)
         return events
@@ -46,9 +45,8 @@ class SyntheticGenerator:
             return self._make_failed_payment_event(event_id, idx, class_name)
 
     def _make_failed_payment_event(self, event_id, idx, class_name):
-        amount = random.choice([19900, 49900, 99900, 199900, 499900])  # in paise
+        amount = random.choice([19900, 49900, 99900, 199900, 499900])
         failure_code, failure_desc = self._get_failure_details(class_name)
-        # Ground truth: will recover?
         if class_name == "funds":
             recoverable = random.random() < 0.6
         elif class_name == "downtime":
@@ -74,13 +72,18 @@ class SyntheticGenerator:
             "cycle": random.randint(1,12),
             "original_failure_code": failure_code,
             "original_failure_desc": failure_desc,
+            "cart_id": None,
+            "cart_value_paise": None,
+            "time_since_abandonment_minutes": None,
+            "return_visit_signal": False,
+            "discount_eligible": False,
             "ground_truth_recoverable": recoverable,
             "ground_truth_class": class_name if class_name != "unknown_messy" else random.choice(["funds", "downtime", "limit"]),
         }
 
     def _make_checkout_event(self, event_id, idx):
         cart_value = random.choice([99900, 149900, 299900, 599900])
-        time_since = random.randint(5, 1440)  # minutes
+        time_since = random.randint(5, 1440)
         return_visit = random.random() < 0.3
         recoverable = return_visit and time_since < 60
         return {
@@ -94,6 +97,10 @@ class SyntheticGenerator:
             "amount_paise": cart_value,
             "currency": "INR",
             "created_at": datetime.now(timezone.utc).isoformat(),
+            "mandate_id": None,
+            "cycle": None,
+            "original_failure_code": None,
+            "original_failure_desc": None,
             "cart_id": f"cart_{idx}",
             "cart_value_paise": cart_value,
             "time_since_abandonment_minutes": time_since,
@@ -123,7 +130,15 @@ class SyntheticGenerator:
         return mapping.get(class_name, ("BAD_REQUEST", "Unknown failure"))
 
     def _save_to_csv(self, events, path):
-        with open(path, 'w', newline='') as f:
-            writer = csv.DictWriter(f, fieldnames=events[0].keys())
+        # Collect union of all keys
+        fieldnames = []
+        for ev in events:
+            for k in ev.keys():
+                if k not in fieldnames:
+                    fieldnames.append(k)
+        with open(path, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writeheader()
-            writer.writerows(events)
+            for ev in events:
+                # Fill missing keys with empty string
+                writer.writerow({k: ev.get(k, '') for k in fieldnames})

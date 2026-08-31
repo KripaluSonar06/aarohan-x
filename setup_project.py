@@ -5,7 +5,7 @@ PROJECT_NAME = "aarohan-x"
 files = [
     "README.md",
     "requirements.txt",
-    ".env.example",
+    ".env",
     ".gitignore",
 
     # config
