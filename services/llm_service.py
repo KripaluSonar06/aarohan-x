@@ -17,25 +17,36 @@ class LLMService:
         else:
             logger.warning("GROQ_API_KEY not set. LLM features will use local Ollama if available.")
 
-    def _call_groq(self, prompt: str, temperature: float = 0.0, max_tokens: int = 500, json_mode: bool = False) -> Optional[str]:
-        """Call Groq chat completion."""
-        try:
-            kwargs = {
-                "model": settings.GROQ_MODEL,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": temperature,
-                "max_tokens": max_tokens,
-            }
-            if json_mode:
-                kwargs["response_format"] = {"type": "json_object"}
-            response = self.groq_client.chat.completions.create(**kwargs)
-            return response.choices[0].message.content
-        except Exception as e:
-            logger.error(f"Groq call failed: {e}")
-            return None
+    def _try_groq_models(self, prompt: str, temperature: float, max_tokens: int, json_mode: bool) -> Optional[str]:
+        """Try a list of Groq models until one works."""
+        models_to_try = [
+            "openai/gpt-oss-120b",
+            "meta-llama/llama-prompt-guard-2-86m"
+            "llama-3.3-70b-versatile",
+            "llama-3.1-8b-instant",
+            "mixtral-8x7b-32768",
+            "gemma2-9b-it",
+        ]
+        for model in models_to_try:
+            try:
+                kwargs = {
+                    "model": model,
+                    "messages": [{"role": "user", "content": prompt}],
+                    "temperature": temperature,
+                    "max_tokens": max_tokens,
+                }
+                if json_mode:
+                    kwargs["response_format"] = {"type": "json_object"}
+                response = self.groq_client.chat.completions.create(**kwargs)
+                logger.info(f"Groq success with model {model}")
+                return response.choices[0].message.content
+            except Exception as e:
+                logger.warning(f"Groq model {model} failed: {e}")
+                continue
+        return None
 
-    def _call_ollama(self, prompt: str, temperature: float = 0.0, max_tokens: int = 500) -> Optional[str]:
-        """Fallback to local Ollama if Groq fails."""
+    def _call_ollama(self, prompt: str, temperature: float, max_tokens: int) -> Optional[str]:
+        """Fallback to local Ollama."""
         try:
             import requests
             response = requests.post(
@@ -46,23 +57,19 @@ class LLMService:
                     "stream": False,
                     "options": {"temperature": temperature, "num_predict": max_tokens}
                 },
-                timeout=30
+                timeout=5
             )
             if response.status_code == 200:
                 return response.json().get("response", "")
-            return None
         except Exception as e:
-            logger.error(f"Ollama fallback failed: {e}")
-            return None
+            logger.warning(f"Ollama fallback failed: {e}")
+        return None
 
     def complete(self, prompt: str, temperature: float = 0.0, max_tokens: int = 500, json_mode: bool = False) -> Optional[str]:
-        """
-        Main completion method. Tries Groq first, then Ollama.
-        Returns None if both fail.
-        """
+        """Main completion method. Tries Groq models, then Ollama."""
         result = None
         if self.groq_client:
-            result = self._call_groq(prompt, temperature, max_tokens, json_mode)
+            result = self._try_groq_models(prompt, temperature, max_tokens, json_mode)
         if result is None:
             result = self._call_ollama(prompt, temperature, max_tokens)
         return result

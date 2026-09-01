@@ -17,7 +17,7 @@ class SyntheticGenerator:
     def generate_batch(self, size=150, output_path=None):
         events = []
         classes = {
-            "funds": 35,
+            "funds": 45,
             "downtime": 20,
             "mandate_dead": 15,
             "instrument_dead": 10,

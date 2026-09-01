@@ -111,6 +111,9 @@ def normalize_checkout_abandonment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
 
 def enrich_with_customer_profile(state: Dict[str, Any]) -> Dict[str, Any]:
     """Fetch customer history and set DND/PTP related fields."""
+    if not isinstance(state, dict):
+        logger.error(f"diagnose_failed_payment received non-dict state: {type(state)}")
+        return {"status": "needs_human", "errors": ["invalid state"]}
     if not state.get("customer_id"):
         return state
 
@@ -134,6 +137,7 @@ def enrich_with_customer_profile(state: Dict[str, Any]) -> Dict[str, Any]:
 
 def ingest_event(raw_event: Dict[str, Any]) -> Dict[str, Any]:
     """Main entry point for ingestion. Determine event type and normalize."""
+
     event_type = raw_event.get("event_type", "failed_payment")
     if event_type == "checkout_abandoned":
         state = normalize_checkout_abandonment_event(raw_event)

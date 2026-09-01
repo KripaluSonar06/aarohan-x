@@ -67,6 +67,9 @@ def check_stop_words(state: Dict[str, Any]) -> bool:
 
 def apply_risk_gates(state: Dict[str, Any]) -> Dict[str, Any]:
     """Main entry point for risk gate agent."""
+    if not isinstance(state, dict):
+        logger.error(f"diagnose_failed_payment received non-dict state: {type(state)}")
+        return {"status": "needs_human", "errors": ["invalid state"]}
     state["node_history"].append("risk_gate")
 
     if apply_hard_stops(state):

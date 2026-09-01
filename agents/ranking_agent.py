@@ -4,14 +4,26 @@ Ranking Agent: uses RecoveryRanker for failed payments and CheckoutRanker for ch
 
 from typing import Dict, Any
 from datetime import datetime, timezone
+from pathlib import Path
 from models.ranker_model import RecoveryRanker
 from models.checkout_ranker import CheckoutRanker
 from core.state import EventClass
 from config.logger import logger
+from config.settings import settings
 
-# Singleton instances
-recovery_ranker = RecoveryRanker()
+# Path to the trained ranker (if exists)
+RANKER_MODEL_PATH = settings.MODEL_SAVE_DIR / "ranker.pkl"
+
+# Instantiate recovery ranker, loading trained model if available
+if RANKER_MODEL_PATH.exists():
+    recovery_ranker = RecoveryRanker(model_path=RANKER_MODEL_PATH)
+    logger.info(f"Loaded pre-trained ranker from {RANKER_MODEL_PATH}")
+else:
+    recovery_ranker = RecoveryRanker()
+    logger.warning("No pre-trained ranker found. Using heuristic fallback.")
+
 checkout_ranker = CheckoutRanker()
+
 
 def build_failed_payment_features(state: Dict[str, Any]) -> Dict[str, Any]:
     """Features for the failed payment ranker."""
@@ -32,6 +44,7 @@ def build_failed_payment_features(state: Dict[str, Any]) -> Dict[str, Any]:
         "has_prior_contact": 1 if state.get("attempts_contact", 0) > 0 else 0,
     }
 
+
 def build_checkout_features(state: Dict[str, Any]) -> Dict[str, Any]:
     """Features for checkout abandonment ranker."""
     return {
@@ -41,7 +54,11 @@ def build_checkout_features(state: Dict[str, Any]) -> Dict[str, Any]:
         "discount_eligible": state.get("discount_eligible", False),
     }
 
+
 def rank(state: Dict[str, Any]) -> Dict[str, Any]:
+    if not isinstance(state, dict):
+        logger.error(f"diagnose_failed_payment received non-dict state: {type(state)}")
+        return {"status": "needs_human", "errors": ["invalid state"]}
     """Compute recovery probability and attach to state."""
     state["node_history"].append("rank")
     if state.get("event_type") == "checkout_abandoned":

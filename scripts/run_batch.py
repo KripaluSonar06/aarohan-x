@@ -6,12 +6,15 @@ Loads CSV, invokes orchestrator, prints metrics, and saves results.
 import argparse
 import csv
 import json
+import random
 from pathlib import Path
 from core.orchestrator import orchestrator
 from config.logger import logger
+from utils.db import init_db
 
 def load_events(csv_path: Path) -> list:
     """Load events from CSV file."""
+    random.seed(42)
     events = []
     with open(csv_path, 'r') as f:
         reader = csv.DictReader(f)
@@ -30,6 +33,7 @@ def load_events(csv_path: Path) -> list:
     return events
 
 def main():
+    init_db()
     parser = argparse.ArgumentParser()
     parser.add_argument("--input", type=str, default="data/batch_150.csv", help="Input CSV path")
     parser.add_argument("--output", type=str, default="data/evaluation_results.json", help="Output JSON for metrics")
@@ -40,7 +44,7 @@ def main():
         logger.error(f"Input file {input_path} not found. Run generate_batch.py first.")
         return
 
-    events = load_events(input_path)
+    events = load_events(input_path)[:5]
     logger.info(f"Loaded {len(events)} events from {input_path}")
 
     results = orchestrator.run_batch(events)

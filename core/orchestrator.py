@@ -86,7 +86,8 @@ class BatchOrchestrator:
                 # Non‑interrupt mode: run in one pass
                 final_state = self.graph.invoke(raw_event, config=config)
         except Exception as e:
-            logger.error(f"Graph invocation failed for event {event_id}: {e}")
+            import traceback
+            logger.error(f"Graph invocation failed for event {event_id}: {e}\n{traceback.format_exc()}")
             final_state = {
                 "event_id": event_id,
                 "status": "needs_human",

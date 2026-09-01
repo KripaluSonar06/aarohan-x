@@ -6,6 +6,7 @@ from typing import Optional
 import razorpay
 from config.settings import settings
 from config.logger import logger
+from core.state import EventClass
 
 class RazorpayTestClient:
     def __init__(self):
@@ -50,21 +51,17 @@ class RazorpayTestClient:
             return False
 
     def simulate_retry_result(self, state: dict) -> bool:
-        """
-        Simulate whether a silent retry would succeed.
-        In test mode, we use a deterministic heuristic based on class and attempt.
-        This is only for demo when no real API is available.
-        """
         event_class = state.get("diagnosed_class")
         attempt = state.get("attempts_silent_retry", 0)
-        if event_class == "downtime":
-            return True  # usually recovers
-        elif event_class == "funds":
-            # simulate ~30% success on first retry, ~20% on second
+
+        if event_class == EventClass.DOWNTIME:
+            return True  # always recovers
+        elif event_class == EventClass.FUNDS:
+            # simulate ~30% on first retry, ~20% on second
             import random
             prob = 0.3 if attempt == 0 else 0.2
             return random.random() < prob
-        elif event_class == "limit":
+        elif event_class == EventClass.LIMIT:
             return False
         else:
             return False

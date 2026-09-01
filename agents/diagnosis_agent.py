@@ -43,6 +43,9 @@ RULES = {
 }
 
 def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
+    if not isinstance(state, dict):
+        logger.error(f"diagnose_failed_payment received non-dict state: {type(state)}")
+        return {"status": "needs_human", "errors": ["invalid state"]}
     """Diagnose failed payment events using rules then LLM."""
     code = state.get("original_failure_code", "").lower().strip()
     desc = state.get("original_failure_desc", "").lower().strip()

@@ -76,7 +76,7 @@ def main():
     output_path = Path(args.output)
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with open(output_path, "wb") as f:
-        pickle.dump(ranker, f)
+        pickle.dump(ranker.model, f)
     logger.info(f"Model saved to {output_path}")
 
 if __name__ == "__main__":

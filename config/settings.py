@@ -17,7 +17,7 @@ class Settings:
 
     # --- LLM ---
     GROQ_API_KEY: str = os.getenv("GROQ_API_KEY", "")
-    GROQ_MODEL: str = "llama-3.3-70b-versatile"
+    GROQ_MODEL: str = "llama-3.1-8b-instant"
     GROQ_TEMPERATURE_CLASSIFY: float = 0.0
     GROQ_TEMPERATURE_GENERATE: float = 0.7
     GROQ_MAX_TOKENS: int = 500
@@ -74,7 +74,7 @@ class Settings:
         self.LOG_DIR.mkdir(parents=True, exist_ok=True)
 
         # If LangSmith tracing is enabled, set environment
-        if self.LANGSMITH_TRACING_V2.lower() == "true":
+        if self.LANGSMITH_TRACING_V2.lower() == "true" and self.LANGSMITH_API_KEY:
             os.environ["LANGSMITH_TRACING"] = "true"
             os.environ["LANGSMITH_API_KEY"] = self.LANGSMITH_API_KEY
             os.environ["LANGSMITH_PROJECT"] = self.LANGSMITH_PROJECT

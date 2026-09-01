@@ -4,6 +4,7 @@ Recovery probability ranker using XGBoost.
 import pickle
 import numpy as np
 import pandas as pd
+from pathlib import Path
 from typing import Dict, Any, List
 from config.settings import settings
 from config.logger import logger
@@ -27,10 +28,10 @@ class RecoveryRanker:
 
     def __init__(self, model_path=None):
         self.model = None
-        if model_path and model_path.exists():
+        if model_path and Path(model_path).exists():
             with open(model_path, "rb") as f:
                 self.model = pickle.load(f)
-            logger.info(f"Loaded ranker from {model_path}")
+            logger.info(f"Loaded ranker model from {model_path}")
         else:
             logger.warning("No pre-trained ranker found. Will train on the fly or use heuristic.")
 
@@ -52,23 +53,34 @@ class RecoveryRanker:
     def predict_proba(self, event_features: Dict[str, Any]) -> float:
         """Return probability of recovery given features."""
         if self.model is None:
-            # Fallback heuristic if no model: use simple rules based on class
             return self._heuristic_proba(event_features)
-        # Create feature vector in correct order
-        X = self._build_feature_vector(event_features)
+
+        # Build a DataFrame with the model's expected feature names
+        X = self._build_feature_dataframe(event_features)
         proba = self.model.predict_proba(X)[0, 1]
         return float(proba)
 
-    def _build_feature_vector(self, event_features: Dict[str, Any]) -> np.ndarray:
-        """Convert dict to numpy array aligned with FEATURES."""
-        features = []
-        for f in self.FEATURES:
-            features.append(event_features.get(f, 0))
-        return np.array(features).reshape(1, -1)
+    def _build_feature_dataframe(self, event_features: Dict[str, Any]) -> pd.DataFrame:
+        """
+        Create a DataFrame with columns matching the model's training features.
+        If the model has feature names stored, use those; otherwise fall back to FEATURES.
+        """
+        if hasattr(self.model, "feature_names_in_"):
+            columns = self.model.feature_names_in_
+        else:
+            columns = self.FEATURES
+
+        data = {}
+        for col in columns:
+            val = event_features.get(col, 0)
+            try:
+                data[col] = [float(val)]
+            except (TypeError, ValueError):
+                data[col] = [0.0]
+        return pd.DataFrame(data)
 
     def _heuristic_proba(self, features: Dict[str, Any]) -> float:
-        """Simple heuristic used if no model is trained."""
-        # Map class to base probability
+        """Fallback heuristic if no model is loaded."""
         if features.get("is_funds_class"):
             base = 0.45
         elif features.get("is_downtime_class"):
@@ -81,7 +93,6 @@ class RecoveryRanker:
             base = 0.10
         else:
             base = 0.05
-        # Adjust based on attempts
         if features.get("attempts_so_far", 0) > 0:
             base *= 0.7
         return min(base, 0.95)

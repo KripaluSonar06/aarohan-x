@@ -49,6 +49,8 @@ def select_optimal_action(
     compute EV for each action and return the optimal one.
     Also returns explanations and counterfactuals.
     """
+    if not isinstance(state, dict):
+        raise TypeError(f"state must be dict, got {type(state)}")
     amount_paise = state.get("amount_paise", 0)
     if channel_costs is None:
         channel_costs = {}
