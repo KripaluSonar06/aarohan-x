@@ -65,6 +65,16 @@ def check_stop_words(state: Dict[str, Any]) -> bool:
     # This is a placeholder: we assume the customer's DND flag already captured it.
     return False
 
+def check_high_value_review(state: Dict[str, Any]) -> bool:
+    """Require merchant approval before automating unusually large recoveries."""
+    policy = policy_manager.get_policy()
+    if state.get("amount_paise", 0) >= policy["high_value_review_paise"]:
+        state["gates_blocked"].append("high_value_manual_review")
+        state["status"] = "needs_human"
+        state["stopped_reason"] = "High-value event requires merchant approval"
+        return True
+    return False
+
 def apply_risk_gates(state: Dict[str, Any]) -> Dict[str, Any]:
     """Main entry point for risk gate agent."""
     if not isinstance(state, dict):
@@ -82,7 +92,7 @@ def apply_risk_gates(state: Dict[str, Any]) -> Dict[str, Any]:
         })
         return state
 
-    if check_dnd(state) or check_broken_ptp(state) or check_attempt_limits(state):
+    if check_dnd(state) or check_broken_ptp(state) or check_attempt_limits(state) or check_high_value_review(state):
         state["ledger"].append({
             "timestamp": datetime.now().isoformat(),
             "action": "stopped_by_gate",

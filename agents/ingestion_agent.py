@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from config.logger import logger
 from models.entities import CustomerProfile
 from utils.db import SessionLocal
+from utils.validators import validate_event
+import hashlib
 
 def normalize_failed_payment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
     """Convert a Razorpay failed payment webhook into a base state."""
@@ -56,6 +58,8 @@ def normalize_failed_payment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
         "ledger": [],
         "node_history": ["ingest"],
         "errors": [],
+        "strategy": raw.get("strategy", "ladder"),
+        "simulation_seed": int(raw.get("simulation_seed", int(hashlib.sha256(str(raw.get("event_id")).encode()).hexdigest()[:8], 16))),
     }
 
 def normalize_checkout_abandonment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -107,6 +111,8 @@ def normalize_checkout_abandonment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
         "ledger": [],
         "node_history": ["ingest"],
         "errors": [],
+        "strategy": raw.get("strategy", "ladder"),
+        "simulation_seed": int(raw.get("simulation_seed", int(hashlib.sha256(str(raw.get("event_id")).encode()).hexdigest()[:8], 16))),
     }
 
 def enrich_with_customer_profile(state: Dict[str, Any]) -> Dict[str, Any]:
@@ -137,6 +143,22 @@ def enrich_with_customer_profile(state: Dict[str, Any]) -> Dict[str, Any]:
 
 def ingest_event(raw_event: Dict[str, Any]) -> Dict[str, Any]:
     """Main entry point for ingestion. Determine event type and normalize."""
+
+    validation_errors = validate_event(raw_event)
+    if validation_errors:
+        return {
+            "event_id": raw_event.get("event_id", "invalid"),
+            "event_type": raw_event.get("event_type", "failed_payment"),
+            "amount_paise": int(raw_event.get("amount_paise", 0) or 0),
+            "status": "needs_human",
+            "errors": validation_errors,
+            "ledger": [],
+            "node_history": ["ingest"],
+            "recovered_amount_paise": 0,
+            "attempts_contact": 0,
+            "attempts_silent_retry": 0,
+            "ptp_broken": False,
+        }
 
     event_type = raw_event.get("event_type", "failed_payment")
     if event_type == "checkout_abandoned":

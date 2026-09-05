@@ -81,6 +81,12 @@ def get_allowed_actions(state: Dict[str, Any]) -> List[str]:
         if "voice_call" in allowed:
             allowed.remove("voice_call")
 
+    strategy = state.get("strategy", "ladder")
+    if strategy == "silent_retry_only":
+        allowed = [action for action in allowed if action in {"silent_retry", "stop"}]
+    elif strategy == "contact_first":
+        allowed = [action for action in allowed if action != "silent_retry"]
+
     return allowed
 
 

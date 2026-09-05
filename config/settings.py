@@ -49,6 +49,7 @@ class Settings:
     SYSTEM_MAX_CUSTOMER_CONTACTS: int = 2
     SYSTEM_MAX_PTP_PROMISES: int = 2
     VOICE_MIN_AMOUNT_PAISE: int = 50000  # ₹500
+    HIGH_VALUE_REVIEW_PAISE: int = 10000000  # ₹100,000 requires merchant approval
     QUIET_HOURS_START: int = 21  # 9 PM
     QUIET_HOURS_END: int = 9    # 9 AM
     STOP_WORDS: list = ["ruko", "stop", "mat call karo", "unsubscribe", "band karo"]
