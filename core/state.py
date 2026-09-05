@@ -89,3 +89,4 @@ class RecoveryState(TypedDict, total=False):
     errors: List[str]
     strategy: str
     simulation_seed: int
+    simulation_mode: bool

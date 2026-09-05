@@ -6,6 +6,7 @@ Collects metrics and optionally persists results to the database.
 
 from typing import List, Dict, Any, Optional
 from datetime import datetime, timezone
+from uuid import uuid4
 from config.logger import logger
 from core.graph import batch_graph_app, graph_app
 from models.entities import RecoveryEvent, LedgerEntry
@@ -27,6 +28,7 @@ class BatchOrchestrator:
         self.use_interrupts = use_interrupts
         self.graph = graph_app if use_interrupts else batch_graph_app
         self.results = self._init_results()
+        self.run_id = uuid4().hex
 
     def _init_results(self) -> Dict[str, Any]:
         """Initialize the results dictionary with default values."""
@@ -54,7 +56,7 @@ class BatchOrchestrator:
         invoking the graph again with None input.
         """
         event_id = raw_event.get("event_id", "unknown")
-        config = {"configurable": {"thread_id": event_id}}
+        config = {"configurable": {"thread_id": f"{self.run_id}:{event_id}"}}
 
         try:
             if self.use_interrupts:
@@ -106,6 +108,7 @@ class BatchOrchestrator:
     def run_batch(self, events: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Run the recovery workflow for all events in the batch."""
         self.results = self._init_results()
+        self.run_id = uuid4().hex
         self.results["total_events"] = len(events)
 
         for raw in events:

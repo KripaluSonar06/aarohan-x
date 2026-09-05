@@ -18,6 +18,7 @@ def load_events(path: Path) -> list[dict]:
         for row in reader:
             row["amount_paise"] = int(row["amount_paise"])
             row["strategy"] = "ladder"
+            row["simulation_mode"] = True
             events.append(row)
         return events[:5]
 

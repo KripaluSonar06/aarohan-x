@@ -6,6 +6,7 @@ from datetime import datetime
 from config.policy import policy_manager
 from core.state import EventClass
 from utils.time_utils import is_quiet_hours
+from config.logger import logger
 
 def apply_hard_stops(state: Dict[str, Any]) -> bool:
     """Return True if must stop immediately."""
@@ -45,6 +46,8 @@ def check_attempt_limits(state: Dict[str, Any]) -> bool:
 
 def check_quiet_hours(state: Dict[str, Any]) -> None:
     """Quiet hours only block customer contact actions, not silent retries."""
+    if state.get("simulation_mode", False):
+        return
     if is_quiet_hours():
         # If the intended next action is customer contact, we block it.
         # Since the policy agent hasn't run yet, we set a flag to be checked later.

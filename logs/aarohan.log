@@ -2009,3 +2009,321 @@ During task with name 'rank' and id 'fd7bfc4a-5a08-e5b9-867e-4f8e8f51e294'
 2026-09-05 19:37:50,191 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
 2026-09-05 19:37:50,218 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
 2026-09-05 19:37:50,229 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:73 - Results saved to scripts\data\evaluation_results.json
+2026-09-05 22:06:23,347 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:06:23,863 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:06:23,872 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:06:24,661 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:06:38,111 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:06:38,111 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:06:38,111 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:06:38,111 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:06:38,154 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:06:38,154 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:06:38,178 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:06:38,180 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:48 - Loaded 5 events from scripts\data\batch_150.csv
+2026-09-05 22:06:38,320 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:06:38,320 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:06:38,376 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:06:38,376 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:06:38,513 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:38,513 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:38,519 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:38,520 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:38,580 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:38,605 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:38,622 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:38,644 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:38,690 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:06:38,701 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:73 - Results saved to scripts\data\evaluation_results.json
+2026-09-05 22:06:38,731 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:06:38,800 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:06:38,884 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:06:38,998 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:39,024 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:06:39,105 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:39,110 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:06:39,222 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:07:36,412 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:07:36,806 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:07:36,815 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:07:37,144 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:07:39,606 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:39,606 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:39,637 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:07:39,754 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:07:39,786 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:07:39,813 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:39,818 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:39,847 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:07:39,853 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:07:39,882 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:07:39,907 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:07:39,933 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:07:39,958 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:39,964 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:39,993 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:07:39,998 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:07:40,026 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:07:46,638 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:07:47,783 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:47,783 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:47,810 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:07:47,886 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:47,890 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:07:52,646 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:07:53,755 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:53,755 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:07:53,779 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:05,158 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:08:06,291 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:06,291 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:06,318 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:23,049 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:08:23,400 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:23,412 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:08:23,715 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:08:23,719 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:08:25,141 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:25,141 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:25,181 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:25,210 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:25,210 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:08:25,254 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:25,275 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:08:25,277 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:49 - Loaded 5 events from scripts\data\batch_150.csv
+2026-09-05 22:08:25,302 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:08:25,335 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:08:25,353 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:08:25,365 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:25,372 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:25,392 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:08:25,405 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:25,411 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:25,434 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:25,441 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:25,451 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:08:25,477 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:08:25,522 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:08:25,562 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:25,567 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:08:27,525 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:27,665 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:29,582 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:29,612 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:29,618 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:29,739 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:29,766 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:29,773 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:08:31,677 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 22:08:31,701 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:08:31,713 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:74 - Results saved to scripts\data\evaluation_results.json
+2026-09-05 22:08:31,833 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 22:08:31,865 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:08:34,045 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0001: Namaste Customer 1, aapka Spotify payment ₹199.00 ...
+2026-09-05 22:08:36,102 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0001: Namaste Customer 1, aapka Spotify payment ₹199.00 ...
+2026-09-05 22:08:38,204 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0002: Namaste Customer 2, aapka Netflix India payment ₹4...
+2026-09-05 22:08:40,266 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0002: Namaste Customer 2, aapka Netflix India payment ₹4...
+2026-09-05 22:08:42,369 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:44,425 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 22:08:46,513 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 22:08:48,591 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0005: Namaste Customer 5, aapka Hotstar payment ₹199.00 ...
+2026-09-05 22:08:57,905 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:08:58,193 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:08:58,199 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:12:07,608 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:12:07,722 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:12:07,916 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:12:07,926 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:12:15,303 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:12:50,859 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:12:52,139 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:12:52,139 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:12:52,167 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:12:52,179 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:12:52,271 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:12:52,356 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:12:52,386 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:12:52,392 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:12:56,728 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:12:56,732 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:12:58,777 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:12:58,803 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0006
+2026-09-05 22:12:58,808 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0006
+2026-09-05 22:13:02,920 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0007
+2026-09-05 22:13:02,925 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0007
+2026-09-05 22:13:07,032 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0008
+2026-09-05 22:13:07,037 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0008
+2026-09-05 22:13:11,151 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0009
+2026-09-05 22:13:11,155 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0009
+2026-09-05 22:13:13,223 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0010
+2026-09-05 22:13:13,229 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0010
+2026-09-05 22:13:13,253 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0011
+2026-09-05 22:13:13,258 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0011
+2026-09-05 22:13:17,425 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0012
+2026-09-05 22:13:17,432 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0012
+2026-09-05 22:13:19,500 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0013
+2026-09-05 22:13:19,506 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0013
+2026-09-05 22:13:23,638 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0014
+2026-09-05 22:13:23,643 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0014
+2026-09-05 22:13:27,770 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0015
+2026-09-05 22:13:27,776 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0015
+2026-09-05 22:13:29,862 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0016
+2026-09-05 22:13:29,888 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0017
+2026-09-05 22:13:31,992 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0018
+2026-09-05 22:13:31,998 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0018
+2026-09-05 22:13:34,058 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0019
+2026-09-05 22:13:34,085 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0020
+2026-09-05 22:13:34,090 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0020
+2026-09-05 22:13:38,162 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0021
+2026-09-05 22:13:38,168 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0021
+2026-09-05 22:13:42,288 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0022
+2026-09-05 22:13:42,293 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0022
+2026-09-05 22:13:55,676 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\voice_service.py:55 - edge-tts fallback failed: Connection timeout to host wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&Sec-MS-GEC=333DFEB0BD526A5C7411ABF1F75C40BFD660EA6EF1A32DAFD59BBFEE344115F7&Sec-MS-GEC-Version=1-130.0.2849.68&ConnectionId=5a3f39c184ff4846b23308320bae7e34
+2026-09-05 22:13:55,676 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\voice_call_agent.py:38 - Voice failed for EVT_0022, falling back to text nudge
+2026-09-05 22:13:55,679 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py:92 - Graph invocation failed for event EVT_0022: name 'send_text_nudge' is not defined
+Traceback (most recent call last):
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py", line 89, in run_single_event
+    final_state = self.graph.invoke(raw_event, config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1936, in invoke
+    for chunk in self.stream(
+                 ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1656, in stream
+    for _ in runner.tick(
+             ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\runner.py", line 167, in tick
+    run_with_retry(
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 408, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 184, in invoke
+    ret = context.run(self.func, input, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\voice_call_agent.py", line 39, in voice_call
+    return send_text_nudge(state)  # reuse text nudge; will increment attempt
+           ^^^^^^^^^^^^^^^
+NameError: name 'send_text_nudge' is not defined
+During task with name 'voice_call' and id 'ab540cc8-bc4a-59b4-31bb-742b7bd18f02'
+
+2026-09-05 22:13:55,700 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0023
+2026-09-05 22:13:55,705 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0023
+2026-09-05 22:13:55,733 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0024
+2026-09-05 22:13:55,738 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0024
+2026-09-05 22:13:59,874 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0025
+2026-09-05 22:13:59,899 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0026
+2026-09-05 22:13:59,904 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0026
+2026-09-05 22:14:02,005 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0027
+2026-09-05 22:14:02,010 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0027
+2026-09-05 22:14:06,156 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0028
+2026-09-05 22:14:06,161 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0028
+2026-09-05 22:14:08,261 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0029
+2026-09-05 22:14:08,288 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0030
+2026-09-05 22:14:08,293 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0030
+2026-09-05 22:14:08,319 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0031
+2026-09-05 22:14:08,323 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0031
+2026-09-05 22:14:12,507 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0032
+2026-09-05 22:14:12,532 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0033
+2026-09-05 22:14:12,537 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0033
+2026-09-05 22:14:12,562 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0034
+2026-09-05 22:14:12,567 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0034
+2026-09-05 22:14:12,591 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0035
+2026-09-05 22:14:12,596 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0035
+2026-09-05 22:14:16,751 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0036
+2026-09-05 22:14:16,773 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0037
+2026-09-05 22:14:16,798 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0038
+2026-09-05 22:14:16,821 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0039
+2026-09-05 22:14:16,846 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0040
+2026-09-05 22:14:16,869 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0041
+2026-09-05 22:14:16,893 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0042
+2026-09-05 22:14:16,917 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0043
+2026-09-05 22:14:16,942 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0044
+2026-09-05 22:14:16,967 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0045
+2026-09-05 22:14:16,990 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0046
+2026-09-05 22:14:17,014 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0047
+2026-09-05 22:14:17,038 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0048
+2026-09-05 22:14:17,064 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0049
+2026-09-05 22:14:17,089 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0050
+2026-09-05 22:14:17,114 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0051
+2026-09-05 22:14:17,137 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0052
+2026-09-05 22:14:17,162 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0053
+2026-09-05 22:14:17,187 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0054
+2026-09-05 22:14:17,211 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0055
+2026-09-05 22:14:17,226 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0056
+2026-09-05 22:14:19,305 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0057
+2026-09-05 22:14:21,411 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0058
+2026-09-05 22:14:23,505 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0059
+2026-09-05 22:14:25,612 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0060
+2026-09-05 22:14:27,686 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0061
+2026-09-05 22:14:29,756 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0062
+2026-09-05 22:14:31,817 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0063
+2026-09-05 22:14:33,889 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0064
+2026-09-05 22:14:35,984 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0065
+2026-09-05 22:14:38,075 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0066
+2026-09-05 22:14:40,140 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0067
+2026-09-05 22:14:42,206 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0068
+2026-09-05 22:14:44,312 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0069
+2026-09-05 22:14:46,413 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0070
+2026-09-05 22:14:48,496 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0071
+2026-09-05 22:14:50,547 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0072
+2026-09-05 22:14:52,606 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0073
+2026-09-05 22:14:54,679 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0074
+2026-09-05 22:14:56,742 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0075
+2026-09-05 22:14:58,830 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0076
+2026-09-05 22:15:00,890 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0077
+2026-09-05 22:15:02,969 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0078
+2026-09-05 22:15:05,053 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0079
+2026-09-05 22:15:07,131 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0080
+2026-09-05 22:15:09,348 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0091
+2026-09-05 22:15:11,427 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0092
+2026-09-05 22:15:13,512 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0093
+2026-09-05 22:15:15,571 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0094
+2026-09-05 22:15:17,643 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0095
+2026-09-05 22:15:19,736 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0096
+2026-09-05 22:15:21,806 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0097
+2026-09-05 22:15:23,867 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0098
+2026-09-05 22:15:25,941 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0099
+2026-09-05 22:15:25,951 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0099
+2026-09-05 22:15:25,986 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0100
+2026-09-05 22:15:25,992 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0100
+2026-09-05 22:15:26,019 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0101
+2026-09-05 22:15:26,024 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0101
+2026-09-05 22:15:26,050 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0102
+2026-09-05 22:15:26,055 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0102
+2026-09-05 22:15:26,081 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0103
+2026-09-05 22:15:26,085 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0103
+2026-09-05 22:15:26,112 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0104
+2026-09-05 22:15:26,117 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0104
+2026-09-05 22:15:26,144 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0105
+2026-09-05 22:15:26,149 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0105
+2026-09-05 22:16:00,259 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:16:00,267 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:16:01,781 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:01,781 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:01,792 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:01,792 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:01,812 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:16:01,819 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:16:01,825 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:16:01,832 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:16:01,929 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:16:02,030 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:16:02,061 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:16:02,067 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:16:06,192 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:16:06,198 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:16:08,270 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:16:17,782 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:16:19,046 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:19,046 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:16:19,072 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:16:19,087 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 22:16:19,186 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 22:16:19,280 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 22:16:19,306 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:16:19,311 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 22:16:23,452 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:16:23,457 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 22:16:25,540 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
