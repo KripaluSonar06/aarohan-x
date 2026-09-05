@@ -52,6 +52,23 @@ def _latest_events(db) -> list[RecoveryEvent]:
 
 def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
     data = event.to_dict()
+    communications = []
+    seen_communications = set()
+    for entry in sorted(event.ledger, key=lambda item: item.timestamp or datetime.min):
+        if entry.action in {"text_nudge_sent", "voice_call_completed", "voice_call_failed_fallback_to_text", "text_nudge_blocked"}:
+            communication_key = entry.idempotency_key or f"{entry.action}:{entry.timestamp}"
+            if communication_key in seen_communications:
+                continue
+            seen_communications.add(communication_key)
+            detail = entry.detail or {}
+            communications.append({
+                "channel": "text" if "text" in entry.action else "voice",
+                "action": entry.action,
+                "status": "sent" if entry.action in {"text_nudge_sent", "voice_call_completed"} else "fallback",
+                "message": detail.get("message"),
+                "transcript": detail.get("transcript"),
+                "timestamp": entry.timestamp.isoformat() if entry.timestamp else "",
+            })
     data.update({
         "customer_name": event.customer_name,
         "amount_inr": event.amount_paise / 100,
@@ -62,6 +79,7 @@ def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
         "attempts_contact": event.attempts_contact,
         "stopped_reason": event.stopped_reason,
         "created_at": event.created_at.isoformat() if event.created_at else "",
+        "communications": communications,
     })
     return data
 

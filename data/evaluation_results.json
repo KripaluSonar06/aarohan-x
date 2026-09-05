@@ -8,7 +8,7 @@
   "double_charges": 0,
   "broken_ptps": 0,
   "events_recovered": 4,
-  "events_stopped": 1,
+  "events_stopped": 0,
   "events_escalated": 0,
-  "events_needs_human": 0
+  "events_needs_human": 1
 }

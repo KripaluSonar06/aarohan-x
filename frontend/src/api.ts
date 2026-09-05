@@ -12,6 +12,7 @@ export type BackendCase = {
   status: string
   attempts: number
   created_at: string
+  communications: { channel: 'text' | 'voice'; action: string; status: string; message?: string; transcript?: string; timestamp: string }[]
 }
 
 export type Metrics = {
