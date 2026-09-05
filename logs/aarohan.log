@@ -2327,3 +2327,11 @@ During task with name 'voice_call' and id 'ab540cc8-bc4a-59b4-31bb-742b7bd18f02'
 2026-09-05 22:16:23,452 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
 2026-09-05 22:16:23,457 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
 2026-09-05 22:16:25,540 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 22:29:25,984 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:29:26,442 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:29:26,448 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event T2
+2026-09-05 22:30:01,015 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 22:30:03,520 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:30:03,520 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 22:30:03,550 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 22:30:03,566 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.

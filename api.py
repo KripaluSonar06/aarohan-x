@@ -51,6 +51,7 @@ def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
         "attempts_silent_retry": event.attempts_silent_retry,
         "attempts_contact": event.attempts_contact,
         "stopped_reason": event.stopped_reason,
+        "created_at": event.created_at.isoformat() if event.created_at else "",
     })
     return data
 
