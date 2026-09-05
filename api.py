@@ -14,6 +14,7 @@ from config.policy import policy_manager
 from pathlib import Path
 from scripts.run_batch import load_events
 from core.orchestrator import orchestrator
+from scripts.experiment import run_experiments
 
 init_db()
 app = FastAPI(title="Aarohan-X Recovery API", version="1.0.0")
@@ -52,6 +53,7 @@ def _latest_events(db) -> list[RecoveryEvent]:
 
 def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
     data = event.to_dict()
+    policy_decision = next((entry.detail or {} for entry in reversed(event.ledger) if entry.action == "policy_decision"), {})
     communications = []
     seen_communications = set()
     for entry in sorted(event.ledger, key=lambda item: item.timestamp or datetime.min):
@@ -80,6 +82,17 @@ def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
         "stopped_reason": event.stopped_reason,
         "created_at": event.created_at.isoformat() if event.created_at else "",
         "communications": communications,
+        "customer_phone": event.customer_phone,
+        "failure_code": event.original_failure_code,
+        "failure_description": event.original_failure_desc,
+        "expected_gross_value_inr": (event.expected_gross_value or 0) / 100,
+        "channel_cost_inr": event.channel_cost or 0,
+        "net_expected_value_inr": (event.net_expected_value or 0) / 100,
+        "decision_explanation": policy_decision.get("explanation"),
+        "ledger": [
+            {"action": entry.action, "detail": entry.detail or {}, "timestamp": entry.timestamp.isoformat() if entry.timestamp else ""}
+            for entry in sorted(event.ledger, key=lambda item: item.timestamp or datetime.min)
+        ],
     })
     return data
 
@@ -212,3 +225,10 @@ def run_batch() -> Dict[str, Any]:
     input_path = Path(__file__).parent / "scripts" / "data" / "batch_150.csv"
     events = load_events(input_path)[:5]
     return orchestrator.run_batch(events)
+
+
+@app.post("/api/experiments")
+def experiments() -> Dict[str, Any]:
+    """Compare all supported strategies on the five-event evaluation sample."""
+    input_path = Path(__file__).parent / "scripts" / "data" / "batch_150.csv"
+    return run_experiments(input_path)
