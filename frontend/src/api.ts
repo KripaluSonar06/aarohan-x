@@ -23,6 +23,14 @@ export type Metrics = {
   events_needs_human: number
 }
 
+export type Analytics = {
+  funnel: { label: string; value: number }[]
+  statuses: Record<string, number>
+  actions: { name: string; events: number; recovered_paise: number }[]
+  diagnoses: Record<string, number>
+  confidence: Record<string, number>
+}
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE}${path}`, init)
   if (!response.ok) throw new Error(`Recovery API request failed: ${response.status}`)
@@ -35,6 +43,10 @@ export function getCases() {
 
 export function getMetrics() {
   return request<Metrics>('/api/metrics')
+}
+
+export function getAnalytics() {
+  return request<Analytics>('/api/analytics')
 }
 
 export async function verifyCase(eventId: string) {

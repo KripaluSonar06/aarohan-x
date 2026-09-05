@@ -41,6 +41,15 @@ class PolicyUpdate(BaseModel):
     high_value_review_paise: int | None = None
 
 
+def _latest_events(db) -> list[RecoveryEvent]:
+    return (
+        db.query(RecoveryEvent)
+        .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
+        .limit(CURRENT_BATCH_SIZE)
+        .all()
+    )
+
+
 def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
     data = event.to_dict()
     data.update({
@@ -66,12 +75,7 @@ def health() -> Dict[str, str]:
 def cases() -> list[Dict[str, Any]]:
     db = SessionLocal()
     try:
-        events = (
-            db.query(RecoveryEvent)
-            .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
-            .limit(CURRENT_BATCH_SIZE)
-            .all()
-        )
+        events = _latest_events(db)
         return [serialize_event(event) for event in events]
     finally:
         db.close()
@@ -81,14 +85,7 @@ def cases() -> list[Dict[str, Any]]:
 def metrics() -> Dict[str, Any]:
     db = SessionLocal()
     try:
-        latest_ids = [
-            row[0] for row in (
-                db.query(RecoveryEvent.id)
-                .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
-                .limit(CURRENT_BATCH_SIZE)
-                .all()
-            )
-        ]
+        latest_ids = [event.id for event in _latest_events(db)]
         total = db.query(func.coalesce(func.sum(RecoveryEvent.amount_paise), 0)).filter(RecoveryEvent.id.in_(latest_ids)).scalar()
         recovered = db.query(func.coalesce(func.sum(RecoveryEvent.recovered_amount_paise), 0)).filter(RecoveryEvent.id.in_(latest_ids)).scalar()
         latest_events = db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids)).all()
@@ -103,6 +100,44 @@ def metrics() -> Dict[str, Any]:
             "net_recovered_paise": int(recovered) - int(float(cost) * 100),
             "events_recovered": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "recovered").count(),
             "events_needs_human": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "needs_human").count(),
+        }
+    finally:
+        db.close()
+
+
+@app.get("/api/analytics")
+def analytics() -> Dict[str, Any]:
+    """Return explainable funnel and strategy data for the merchant dashboard."""
+    db = SessionLocal()
+    try:
+        events = _latest_events(db)
+        status_counts: Dict[str, int] = {}
+        action_counts: Dict[str, int] = {}
+        diagnosis_counts: Dict[str, int] = {}
+        recovered_by_action: Dict[str, int] = {}
+        confidence_buckets = {"high": 0, "medium": 0, "low": 0}
+        for event in events:
+            status_counts[event.status] = status_counts.get(event.status, 0) + 1
+            action = event.playbook_action or "not_selected"
+            action_counts[action] = action_counts.get(action, 0) + 1
+            recovered_by_action[action] = recovered_by_action.get(action, 0) + event.recovered_amount_paise
+            diagnosis = event.diagnosed_class or "unknown"
+            diagnosis_counts[diagnosis] = diagnosis_counts.get(diagnosis, 0) + 1
+            confidence = event.diagnosis_confidence or 0
+            bucket = "high" if confidence >= 0.8 else "medium" if confidence >= 0.5 else "low"
+            confidence_buckets[bucket] += 1
+        return {
+            "funnel": [
+                {"label": "Events received", "value": len(events)},
+                {"label": "Diagnosed", "value": sum(diagnosis_counts.values())},
+                {"label": "Intervention selected", "value": sum(action_counts.values())},
+                {"label": "Recovered", "value": status_counts.get("recovered", 0)},
+                {"label": "Human review", "value": status_counts.get("needs_human", 0)},
+            ],
+            "statuses": status_counts,
+            "actions": [{"name": key, "events": value, "recovered_paise": recovered_by_action[key]} for key, value in action_counts.items()],
+            "diagnoses": diagnosis_counts,
+            "confidence": confidence_buckets,
         }
     finally:
         db.close()

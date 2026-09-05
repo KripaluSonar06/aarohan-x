@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Activity, AlertTriangle, Check, ChevronRight, CircleDollarSign, FileCheck2, Gauge, LayoutDashboard, Menu, Play, Search, ShieldCheck, Sparkles, Target, WalletCards, Zap } from 'lucide-react'
-import { getCases, getMetrics, runBatch, verifyCase, type BackendCase, type Metrics } from './api'
+import { getAnalytics, getCases, getMetrics, runBatch, verifyCase, type Analytics, type BackendCase, type Metrics } from './api'
 
 type Page = 'Command center' | 'Cases' | 'Exceptions' | 'Experiments' | 'Policy center'
 type Status = 'Recovered' | 'In review' | 'Retrying' | 'Stopped'
@@ -23,12 +23,13 @@ export default function App() {
   const [open, setOpen] = useState(false)
   const [cases, setCases] = useState<Case[]>(fallback)
   const [metrics, setMetrics] = useState<Metrics | null>(null)
+  const [analytics, setAnalytics] = useState<Analytics | null>(null)
   const [toast, setToast] = useState('')
   const [query, setQuery] = useState('')
   const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(''), 2800) }
   const refresh = async () => {
-    const [backendCases, backendMetrics] = await Promise.all([getCases(), getMetrics()])
-    setCases(backendCases.map(mapCase)); setMetrics(backendMetrics)
+    const [backendCases, backendMetrics, backendAnalytics] = await Promise.all([getCases(), getMetrics(), getAnalytics()])
+    setCases(backendCases.map(mapCase)); setMetrics(backendMetrics); setAnalytics(backendAnalytics)
   }
   useEffect(() => { refresh().catch(() => notify('Backend unavailable. Showing sample data.')) }, [])
   const verify = async (id: string) => {
@@ -36,6 +37,7 @@ export default function App() {
       const updated = await verifyCase(id)
       setCases(current => current.map(item => item.id === id ? mapCase(updated) : item))
       setMetrics(await getMetrics())
+      setAnalytics(await getAnalytics())
       notify(`${id} verified. Dashboard updated.`)
     } catch { notify('Verification failed. Check that the backend API is running.') }
   }
@@ -51,17 +53,25 @@ export default function App() {
       <div className="side-bottom"><div className="system"><b><i/> AI systems operational</b><small>Live backend connection</small></div><div className="user"><strong>KS</strong><span>Kripalu Sonar<small>Admin</small></span></div></div>
     </aside>
     <main><header><button className="mobile" onClick={() => setOpen(!open)}><Menu/></button><div className="crumb">⌘ Aarohan-X <ChevronRight size={14}/><b>{page}</b></div><div className="top-right"><span className="live"><i/> Live mode</span><strong>KS</strong></div></header>
-      <section className="content">{page === 'Command center' && <Command metrics={metrics} onBatch={batch}/>} {page === 'Cases' && <CasesPage cases={cases} query={query} setQuery={setQuery} onVerify={verify}/>} {page === 'Exceptions' && <Exceptions cases={cases} onVerify={verify}/>} {page === 'Experiments' && <Experiments onRun={batch}/>} {page === 'Policy center' && <Policy/>}</section>
+      <section className="content">{page === 'Command center' && <Command metrics={metrics} analytics={analytics} onBatch={batch}/>} {page === 'Cases' && <CasesPage cases={cases} query={query} setQuery={setQuery} onVerify={verify}/>} {page === 'Exceptions' && <Exceptions cases={cases} onVerify={verify}/>} {page === 'Experiments' && <Experiments onRun={batch}/>} {page === 'Policy center' && <Policy/>}</section>
     </main>{toast && <div className="toast"><Check size={17}/>{toast}</div>}
   </div>
 }
 
 function Title({ eyebrow, title, desc, action }: { eyebrow: string; title: string; desc: string; action?: React.ReactNode }) { return <div className="title"><div><small>{eyebrow}</small><h1>{title}</h1><p>{desc}</p></div><div className="title-actions">{action}</div></div> }
 function Stat({ label, value, icon: Icon, tone = '' }: { label: string; value: string; icon: typeof WalletCards; tone?: string }) { return <div className={`stat ${tone}`}><div><span>{label}</span><Icon size={17}/></div><b>{value}</b></div> }
-function Command({ metrics, onBatch }: { metrics: Metrics | null; onBatch: () => void }) {
+function Command({ metrics, analytics, onBatch }: { metrics: Metrics | null; analytics: Analytics | null; onBatch: () => void }) {
   const risk = (metrics?.total_at_risk_paise || 1059500) / 100, recovered = (metrics?.gross_recovered_paise || 0) / 100, net = (metrics?.net_recovered_paise || 0) / 100
   const rate = risk ? `${((recovered / risk) * 100).toFixed(1)}%` : '0.0%'
-  return <><Title eyebrow="RECOVERY OPERATIONS" title="Revenue command center" desc="Live recovery performance from the backend database." action={<button className="primary" onClick={onBatch}><Play size={15} fill="currentColor"/> Run recovery batch</button>}/><div className="stats"><Stat label="Total at risk" value={money(risk)} icon={CircleDollarSign}/><Stat label="Gross recovered" value={money(recovered)} icon={WalletCards} tone="green"/><Stat label="Recovery rate" value={rate} icon={Gauge} tone="cyan"/><Stat label="Net recovered" value={money(net)} icon={Zap} tone="amber"/></div><section className="card"><div className="head"><div><small>LIVE STATUS</small><h2>Backend results</h2></div></div><p>{metrics?.events_recovered || 0} recovered · {metrics?.events_needs_human || 0} awaiting human verification</p></section></>
+  return <><Title eyebrow="RECOVERY OPERATIONS" title="Revenue command center" desc="Live recovery performance from the backend database." action={<button className="primary" onClick={onBatch}><Play size={15} fill="currentColor"/> Run recovery batch</button>}/><div className="stats"><Stat label="Total at risk" value={money(risk)} icon={CircleDollarSign}/><Stat label="Gross recovered" value={money(recovered)} icon={WalletCards} tone="green"/><Stat label="Recovery rate" value={rate} icon={Gauge} tone="cyan"/><Stat label="Net recovered" value={money(net)} icon={Zap} tone="amber"/></div><div className="dashboard-grid"><FunnelGraph funnel={analytics?.funnel || []}/><ActionGraph actions={analytics?.actions || []}/></div><section className="card"><div className="head"><div><small>DECISION EXPLAINABILITY</small><h2>How the model handled this batch</h2></div></div><p>{metrics?.events_recovered || 0} recovered · {metrics?.events_needs_human || 0} awaiting human verification · {Object.values(analytics?.confidence || {}).reduce((sum, value) => sum + value, 0)} decisions scored</p></section></>
+}
+function FunnelGraph({ funnel }: { funnel: { label: string; value: number }[] }) {
+  const max = Math.max(...funnel.map(item => item.value), 1)
+  return <section className="card analytics-card"><div className="head"><div><small>RECOVERY FUNNEL</small><h2>Where value moves</h2></div></div><div className="bar-chart">{funnel.map(item => <div className="bar-row" key={item.label}><span>{item.label}</span><i><b style={{ width: `${(item.value / max) * 100}%` }}/></i><strong>{item.value}</strong></div>)}</div></section>
+}
+function ActionGraph({ actions }: { actions: { name: string; events: number; recovered_paise: number }[] }) {
+  const max = Math.max(...actions.map(item => item.recovered_paise), 1)
+  return <section className="card analytics-card"><div className="head"><div><small>POLICY PERFORMANCE</small><h2>Recovered value by action</h2></div></div><div className="bar-chart">{actions.length ? actions.map(item => <div className="bar-row" key={item.name}><span>{item.name.replace(/_/g, ' ')}</span><i><b className="bar-green" style={{ width: `${(item.recovered_paise / max) * 100}%` }}/></i><strong>{money(item.recovered_paise / 100)}</strong></div>) : <p>No actions recorded yet.</p>}</div></section>
 }
 function CasesPage({ cases, query, setQuery, onVerify }: { cases: Case[]; query: string; setQuery: (value: string) => void; onVerify: (id: string) => void }) {
   const filtered = useMemo(() => cases.filter(item => `${item.id} ${item.customer} ${item.merchant}`.toLowerCase().includes(query.toLowerCase())), [cases, query])
