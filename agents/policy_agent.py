@@ -138,10 +138,11 @@ def select_action(state: Dict[str, Any]) -> Dict[str, Any]:
     state["net_expected_value"] = decision["selected_ev"]
     state["decision_explanation"] = decision["explanation"]
 
-    # If the chosen action is stop, mark the event as stopped
+    # A low-value decision is ambiguous for the operator, not a hard safety stop.
+    # Keep it in the human queue so a verified payment signal can improve recovery.
     if decision["selected_action"] == "stop":
-        state["status"] = "stopped"
-        state["stopped_reason"] = "No action with positive expected net value"
+        state["status"] = "needs_human"
+        state["stopped_reason"] = "No action with positive expected net value; human review requested"
 
     # Log decision
     state["ledger"].append({
