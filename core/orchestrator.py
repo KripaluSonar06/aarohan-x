@@ -208,14 +208,42 @@ class BatchOrchestrator:
                 )
                 db.add(event_record)
                 db.flush()  # get ID without commit yet
+            else:
+                # A rerun must replace the prior outcome for the same event.
+                event_record = existing
+                event_record.event_type = state.get("event_type", event_record.event_type)
+                event_record.merchant_name = state.get("merchant_name", event_record.merchant_name)
+                event_record.customer_name = state.get("customer_name", event_record.customer_name)
+                event_record.amount_paise = state.get("amount_paise", event_record.amount_paise)
+                event_record.diagnosed_class = state.get("diagnosed_class").value if state.get("diagnosed_class") else None
+                event_record.diagnosis_confidence = state.get("diagnosis_confidence")
+                event_record.diagnosis_source = state.get("diagnosis_source")
+                event_record.recovery_probability = state.get("recovery_probability")
+                event_record.expected_gross_value = state.get("expected_gross_value")
+                event_record.channel_cost = state.get("channel_cost")
+                event_record.net_expected_value = state.get("net_expected_value")
+                event_record.playbook_action = state.get("playbook_action")
+                event_record.attempts_silent_retry = state.get("attempts_silent_retry", 0)
+                event_record.attempts_contact = state.get("attempts_contact", 0)
+                event_record.ptp_count = state.get("ptp_count", 0)
+                event_record.ptp_broken = state.get("ptp_broken", False)
+                event_record.status = state.get("status", "active")
+                event_record.recovered_amount_paise = state.get("recovered_amount_paise", 0)
+                event_record.stopped_reason = state.get("stopped_reason")
 
             # Add ledger entries
             for entry in state.get("ledger", []):
+                idempotency_key = entry.get("idempotency_key")
+                if idempotency_key:
+                    db.query(LedgerEntry).filter(
+                        LedgerEntry.event_id == event_id,
+                        LedgerEntry.idempotency_key == idempotency_key,
+                    ).delete(synchronize_session=False)
                 ledger_entry = LedgerEntry(
                     event_id=event_id,
                     action=entry.get("action", ""),
                     detail=entry.get("detail", {}),
-                    idempotency_key=entry.get("idempotency_key"),
+                    idempotency_key=idempotency_key,
                     cost=entry.get("cost", 0.0),
                 )
                 db.add(ledger_entry)
