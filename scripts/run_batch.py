@@ -29,6 +29,7 @@ def load_events(csv_path: Path) -> list:
                 row['return_visit_signal'] = row['return_visit_signal'].lower() == 'true'
             if 'discount_eligible' in row:
                 row['discount_eligible'] = row['discount_eligible'].lower() == 'true'
+            row['simulation_mode'] = True
             events.append(row)
     return events
 

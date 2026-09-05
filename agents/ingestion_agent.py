@@ -60,6 +60,7 @@ def normalize_failed_payment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
         "errors": [],
         "strategy": raw.get("strategy", "ladder"),
         "simulation_seed": int(raw.get("simulation_seed", int(hashlib.sha256(str(raw.get("event_id")).encode()).hexdigest()[:8], 16))),
+        "simulation_mode": bool(raw.get("simulation_mode", False)),
     }
 
 def normalize_checkout_abandonment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
@@ -113,6 +114,7 @@ def normalize_checkout_abandonment_event(raw: Dict[str, Any]) -> Dict[str, Any]:
         "errors": [],
         "strategy": raw.get("strategy", "ladder"),
         "simulation_seed": int(raw.get("simulation_seed", int(hashlib.sha256(str(raw.get("event_id")).encode()).hexdigest()[:8], 16))),
+        "simulation_mode": bool(raw.get("simulation_mode", False)),
     }
 
 def enrich_with_customer_profile(state: Dict[str, Any]) -> Dict[str, Any]:
