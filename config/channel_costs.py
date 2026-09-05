@@ -6,8 +6,11 @@ from config.settings import settings
 CHANNEL_COSTS = {
     "silent_retry": 0.0,
     "payment_link": settings.PAYMENT_LINK_COST,
+    "text_nudge": settings.SMS_COST,
+    "retarget_nudge": settings.SMS_COST,
     "sms": settings.SMS_COST,
     "whatsapp": settings.SMS_COST,  # same as SMS for demo
+    "voice_call": settings.VOICE_COST,
     "voice": settings.VOICE_COST,
     "discount": None,  # calculated as percentage of amount, capped
 }

@@ -20,6 +20,7 @@ from agents.execution.voice_call_agent import voice_call
 from agents.execution.checkout_retarget_agent import checkout_retarget
 from agents.execution.scheduler_agent import schedule_wait
 from agents.settlement_agent import settle
+from core.state import RecoveryState
 
 
 def build_graph(interrupt: bool = True):
@@ -32,7 +33,7 @@ def build_graph(interrupt: bool = True):
                    can then resume after approval. For batch processing,
                    set interrupt=False to run without pausing.
     """
-    workflow = StateGraph(Dict[str, Any])
+    workflow = StateGraph(RecoveryState)
 
     # ------------------------------------------------------------
     # Node wrappers

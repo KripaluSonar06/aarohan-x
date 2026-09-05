@@ -3,6 +3,7 @@ Diagnosis Agent: classifies failure reason using rules first, then LLM fallback.
 For checkout abandonment, class is always 'abandoned'.
 """
 from typing import Dict, Any
+import re
 from core.state import EventClass
 from services.llm_service import llm_service
 from config.logger import logger
@@ -49,6 +50,7 @@ def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
     """Diagnose failed payment events using rules then LLM."""
     code = state.get("original_failure_code", "").lower().strip()
     desc = state.get("original_failure_desc", "").lower().strip()
+    normalized_desc = re.sub(r"[^a-z0-9]+", "_", desc).strip("_")
 
     # Check exact code
     if code in RULES:
@@ -60,7 +62,7 @@ def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
 
     # Check description keywords
     for keyword, event_class in RULES.items():
-        if keyword in desc:
+        if keyword in desc or keyword in normalized_desc:
             state["diagnosed_class"] = event_class
             state["diagnosis_confidence"] = 0.85
             state["diagnosis_source"] = "rules"
@@ -69,7 +71,7 @@ def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
 
     # If not matched by rules, use LLM
     logger.info(f"Failure not matched by rules, using LLM for event {state['event_id']}")
-    context = f"Customer ID: {state.get('customer_id')}, Amount: ₹{state['amount_paise']/100:.2f}"
+    context = f"Customer ID: {state.get('customer_id')}, Amount: ₹{state.get('amount_paise', 0)/100:.2f}"
     llm_result = llm_service.classify_failure(code, desc, context)
     state["diagnosed_class"] = EventClass(llm_result["class"])
     state["diagnosis_confidence"] = llm_result["confidence"]

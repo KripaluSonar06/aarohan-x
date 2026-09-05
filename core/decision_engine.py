@@ -61,13 +61,15 @@ def select_optimal_action(
     ev_list = []
     for action in allowed_actions:
         cost = channel_costs.get(action, 0.0)
-        ev = compute_ev(recovery_probability, amount_paise, cost)
+        # Stopping is the fallback outcome, not a recovery action. It must
+        # not receive the same gross-recovery value as an intervention.
+        ev = 0.0 if action == "stop" else compute_ev(recovery_probability, amount_paise, cost)
         ev_list.append({
             "action": action,
             "cost": cost,
             "ev": ev,
             "probability": recovery_probability,
-            "net_positive": ev > 0,
+            "net_positive": action != "stop" and ev > 0,
         })
 
     # Sort by EV descending
