@@ -11,6 +11,7 @@ CHANNEL_COSTS = {
     "sms": settings.SMS_COST,
     "whatsapp": settings.SMS_COST,  # same as SMS for demo
     "voice_call": settings.VOICE_COST,
+    "discount_link": settings.DISCOUNT_MAX_PERCENT,
     "voice": settings.VOICE_COST,
     "discount": None,  # calculated as percentage of amount, capped
 }

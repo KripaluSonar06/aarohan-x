@@ -17,6 +17,7 @@ class PolicyManager:
             "max_customer_contacts": settings.SYSTEM_MAX_CUSTOMER_CONTACTS,
             "max_ptp_promises": settings.SYSTEM_MAX_PTP_PROMISES,
             "voice_min_amount_paise": settings.VOICE_MIN_AMOUNT_PAISE,
+            "high_value_review_paise": settings.HIGH_VALUE_REVIEW_PAISE,
             "quiet_hours_start": settings.QUIET_HOURS_START,
             "quiet_hours_end": settings.QUIET_HOURS_END,
             "stop_words": settings.STOP_WORDS,

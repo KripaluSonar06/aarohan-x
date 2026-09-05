@@ -8,7 +8,7 @@ from services.razorpay_client import razorpay_client
 from utils.audit import add_ledger_entry
 from config.logger import logger
 
-import random
+import hashlib
 
 def settle(state: Dict[str, Any]) -> Dict[str, Any]:
     state["node_history"].append("settle")
@@ -36,7 +36,9 @@ def settle(state: Dict[str, Any]) -> Dict[str, Any]:
     contact_actions = ["text_nudge", "voice_call", "payment_link", "checkout_retarget"]
     if state.get("status") == "active" and state.get("playbook_action") in contact_actions:
         prob = state.get("recovery_probability", 0.2)
-        if random.random() < prob:
+        seed = f"{state.get('simulation_seed', state.get('event_id'))}:{state.get('playbook_action')}:{state.get('attempts_contact', 0)}"
+        roll = int(hashlib.sha256(seed.encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
+        if roll < prob:
             state["recovered_amount_paise"] = state["amount_paise"]
             state["status"] = "recovered"
             add_ledger_entry(state, "customer_paid_after_contact", {"amount": state["amount_paise"]}, None, 0.0)

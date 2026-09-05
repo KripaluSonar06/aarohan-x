@@ -87,3 +87,5 @@ class RecoveryState(TypedDict, total=False):
     ledger: List[dict]
     node_history: List[str]
     errors: List[str]
+    strategy: str
+    simulation_seed: int

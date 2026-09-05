@@ -60,18 +60,31 @@ def build_graph(interrupt: bool = True):
     # Settlement & terminal
     workflow.add_node("settle", settle)
     workflow.add_node("stop", lambda state: state)  # no-op terminal
+    workflow.add_node("escalate", lambda state: {
+        **state,
+        "status": "escalated",
+        "stopped_reason": state.get("stopped_reason") or "Merchant review required",
+        "node_history": state.get("node_history", []) + ["escalate"],
+    })
 
     # ------------------------------------------------------------
     # Edges and routing
     # ------------------------------------------------------------
     workflow.set_entry_point("ingest")
 
-    workflow.add_edge("ingest", "diagnose")
+    def after_ingest(state: Dict[str, Any]) -> Literal["diagnose", "stop"]:
+        return "stop" if state.get("status") == "needs_human" else "diagnose"
+
+    workflow.add_conditional_edges(
+        "ingest",
+        after_ingest,
+        {"diagnose": "diagnose", "stop": "stop"},
+    )
     workflow.add_edge("diagnose", "risk_gate")
 
     # After risk gate: if stopped, go to terminal stop; else continue to ranking
     def after_risk_gate(state: Dict[str, Any]) -> Literal["rank", "stop"]:
-        return "stop" if state.get("status") == "stopped" else "rank"
+        return "stop" if state.get("status") in {"stopped", "needs_human"} else "rank"
 
     workflow.add_conditional_edges(
         "risk_gate",
@@ -94,8 +107,9 @@ def build_graph(interrupt: bool = True):
             "retarget_nudge": "checkout_retarget",
             "checkout_retarget": "checkout_retarget",
             "discount_link": "checkout_retarget",   # discount handled in checkout_retarget
-            "merchant_escalation": "stop",          # escalation logic simplified to stop
+            "merchant_escalation": "escalate",
             "stop": "stop",
+            "escalate": "escalate",
         }
         return mapping.get(action, "stop")
 
@@ -109,6 +123,7 @@ def build_graph(interrupt: bool = True):
             "voice_call": "voice_call",
             "checkout_retarget": "checkout_retarget",
             "stop": "stop",
+            "escalate": "escalate",
         }
     )
 
@@ -119,9 +134,16 @@ def build_graph(interrupt: bool = True):
     # If schedule_wait is ever used, it goes to stop (wait is simulated outside)
     workflow.add_edge("schedule_wait", "stop")
 
-    # After settlement, final stop
-    workflow.add_edge("settle", "stop")
+    def after_settlement(state: Dict[str, Any]) -> Literal["policy", "stop"]:
+        return "policy" if state.get("status") == "active" else "stop"
+
+    workflow.add_conditional_edges(
+        "settle",
+        after_settlement,
+        {"policy": "policy", "stop": "stop"},
+    )
     workflow.add_edge("stop", END)
+    workflow.add_edge("escalate", END)
 
     # ------------------------------------------------------------
     # Compile with checkpoint and optional interrupts

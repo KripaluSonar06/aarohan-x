@@ -7,6 +7,7 @@ import razorpay
 from config.settings import settings
 from config.logger import logger
 from core.state import EventClass
+import hashlib
 
 class RazorpayTestClient:
     def __init__(self):
@@ -58,9 +59,10 @@ class RazorpayTestClient:
             return True  # always recovers
         elif event_class == EventClass.FUNDS:
             # simulate ~30% on first retry, ~20% on second
-            import random
             prob = 0.3 if attempt == 0 else 0.2
-            return random.random() < prob
+            seed = f"{state.get('simulation_seed', state.get('event_id'))}:silent_retry:{attempt}"
+            roll = int(hashlib.sha256(seed.encode()).hexdigest()[:8], 16) / 0xFFFFFFFF
+            return roll < prob
         elif event_class == EventClass.LIMIT:
             return False
         else:

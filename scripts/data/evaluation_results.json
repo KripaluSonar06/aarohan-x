@@ -1,14 +1,14 @@
 {
   "total_events": 5,
   "total_at_risk_paise": 1059500,
-  "gross_recovered_paise": 39800,
-  "net_recovered_paise": 39800,
-  "contact_cost_inr": 0.0,
+  "gross_recovered_paise": 559600,
+  "net_recovered_paise": 559570,
+  "contact_cost_inr": 0.30000000000000004,
   "wasted_contacts": 0,
   "double_charges": 0,
   "broken_ptps": 0,
-  "events_recovered": 2,
-  "events_stopped": 0,
+  "events_recovered": 4,
+  "events_stopped": 1,
   "events_escalated": 0,
   "events_needs_human": 0
 }
