@@ -17,6 +17,7 @@ from core.orchestrator import orchestrator
 
 init_db()
 app = FastAPI(title="Aarohan-X Recovery API", version="1.0.0")
+CURRENT_BATCH_SIZE = 5
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -65,7 +66,12 @@ def health() -> Dict[str, str]:
 def cases() -> list[Dict[str, Any]]:
     db = SessionLocal()
     try:
-        events = db.query(RecoveryEvent).order_by(RecoveryEvent.created_at.desc()).all()
+        events = (
+            db.query(RecoveryEvent)
+            .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
+            .limit(CURRENT_BATCH_SIZE)
+            .all()
+        )
         return [serialize_event(event) for event in events]
     finally:
         db.close()
@@ -75,16 +81,28 @@ def cases() -> list[Dict[str, Any]]:
 def metrics() -> Dict[str, Any]:
     db = SessionLocal()
     try:
-        total = db.query(func.coalesce(func.sum(RecoveryEvent.amount_paise), 0)).scalar()
-        recovered = db.query(func.coalesce(func.sum(RecoveryEvent.recovered_amount_paise), 0)).scalar()
-        cost = db.query(func.coalesce(func.sum(LedgerEntry.cost), 0.0)).scalar()
+        latest_ids = [
+            row[0] for row in (
+                db.query(RecoveryEvent.id)
+                .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
+                .limit(CURRENT_BATCH_SIZE)
+                .all()
+            )
+        ]
+        total = db.query(func.coalesce(func.sum(RecoveryEvent.amount_paise), 0)).filter(RecoveryEvent.id.in_(latest_ids)).scalar()
+        recovered = db.query(func.coalesce(func.sum(RecoveryEvent.recovered_amount_paise), 0)).filter(RecoveryEvent.id.in_(latest_ids)).scalar()
+        latest_events = db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids)).all()
+        cost = sum(
+            event.attempts_contact * (5.0 if event.playbook_action == "voice_call" else 0.10)
+            for event in latest_events
+        )
         return {
             "total_at_risk_paise": int(total),
             "gross_recovered_paise": int(recovered),
             "contact_cost_inr": float(cost),
             "net_recovered_paise": int(recovered) - int(float(cost) * 100),
-            "events_recovered": db.query(RecoveryEvent).filter(RecoveryEvent.status == "recovered").count(),
-            "events_needs_human": db.query(RecoveryEvent).filter(RecoveryEvent.status == "needs_human").count(),
+            "events_recovered": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "recovered").count(),
+            "events_needs_human": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "needs_human").count(),
         }
     finally:
         db.close()
