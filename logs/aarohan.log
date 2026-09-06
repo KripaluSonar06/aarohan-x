@@ -2552,3 +2552,353 @@ During task with name 'voice_call' and id 'ab540cc8-bc4a-59b4-31bb-742b7bd18f02'
 2026-09-05 23:34:09,841 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
 2026-09-05 23:34:09,874 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
 2026-09-05 23:34:09,889 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 23:46:56,473 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 23:46:58,548 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:46:58,548 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:46:58,590 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 23:46:58,605 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 23:46:58,607 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:49 - Loaded 150 events from data\batch_150.csv
+2026-09-05 23:46:58,713 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 23:46:58,751 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 23:46:58,780 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:46:58,785 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:47:00,854 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:47:02,899 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:47:02,926 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:47:02,932 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:47:04,989 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 23:47:05,018 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 23:47:05,048 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0006
+2026-09-05 23:47:05,054 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0006
+2026-09-05 23:47:07,139 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0006: Namaste Customer 6, aapka Netflix India payment ₹1...
+2026-09-05 23:47:09,166 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0006: Namaste Customer 6, aapka Netflix India payment ₹1...
+2026-09-05 23:47:09,208 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0007
+2026-09-05 23:47:09,214 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0007
+2026-09-05 23:47:11,278 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0007: Namaste Customer 7, aapka Netflix India payment ₹9...
+2026-09-05 23:47:13,319 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0007: Namaste Customer 7, aapka Netflix India payment ₹9...
+2026-09-05 23:47:13,344 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0008
+2026-09-05 23:47:13,349 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0008
+2026-09-05 23:47:15,423 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0008: Namaste Customer 8, aapka Hotstar payment ₹199.00 ...
+2026-09-05 23:47:17,547 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0008: Namaste Customer 8, aapka Hotstar payment ₹199.00 ...
+2026-09-05 23:47:17,574 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0009
+2026-09-05 23:47:17,578 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0009
+2026-09-05 23:47:19,649 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0009: Namaste Customer 9, aapka Netflix India payment ₹9...
+2026-09-05 23:47:19,680 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0010
+2026-09-05 23:47:19,685 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0010
+2026-09-05 23:47:19,715 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0011
+2026-09-05 23:47:19,721 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0011
+2026-09-05 23:47:21,772 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0011: Namaste Customer 11, aapka Hotstar payment ₹499.00...
+2026-09-05 23:47:23,843 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0011: Namaste Customer 11, aapka Hotstar payment ₹499.00...
+2026-09-05 23:47:23,875 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0012
+2026-09-05 23:47:23,883 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0012
+2026-09-05 23:47:25,964 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0012: Namaste Customer 12, aapka GymFlex payment ₹999.00...
+2026-09-05 23:47:25,998 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0013
+2026-09-05 23:47:26,004 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0013
+2026-09-05 23:47:28,035 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0013: Namaste Customer 13, aapka GymFlex payment ₹4999.0...
+2026-09-05 23:47:30,062 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0013: Namaste Customer 13, aapka GymFlex payment ₹4999.0...
+2026-09-05 23:47:30,094 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0014
+2026-09-05 23:47:30,103 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0014
+2026-09-05 23:47:32,157 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0014: Namaste Customer 14, aapka Netflix India payment ₹...
+2026-09-05 23:47:34,231 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0014: Namaste Customer 14, aapka Netflix India payment ₹...
+2026-09-05 23:47:34,263 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0015
+2026-09-05 23:47:34,268 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0015
+2026-09-05 23:47:36,350 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0015: Namaste Customer 15, aapka EMI Card payment ₹1999....
+2026-09-05 23:47:36,376 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0016
+2026-09-05 23:47:36,406 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0017
+2026-09-05 23:47:38,494 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0017: Namaste Customer 17, aapka Hotstar payment ₹999.00...
+2026-09-05 23:47:38,523 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0018
+2026-09-05 23:47:38,527 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0018
+2026-09-05 23:47:40,610 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0018: Namaste Customer 18, aapka Hotstar payment ₹999.00...
+2026-09-05 23:47:40,637 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0019
+2026-09-05 23:47:40,665 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0020
+2026-09-05 23:47:40,671 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0020
+2026-09-05 23:47:42,718 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0020: Namaste Customer 20, aapka GymFlex payment ₹499.00...
+2026-09-05 23:47:44,756 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0020: Namaste Customer 20, aapka GymFlex payment ₹499.00...
+2026-09-05 23:47:44,781 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0021
+2026-09-05 23:47:44,785 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0021
+2026-09-05 23:47:46,826 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0021: Namaste Customer 21, aapka Hotstar payment ₹499.00...
+2026-09-05 23:47:48,871 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0021: Namaste Customer 21, aapka Hotstar payment ₹499.00...
+2026-09-05 23:47:48,904 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0022
+2026-09-05 23:47:48,908 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0022
+2026-09-05 23:47:54,274 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\voice_service.py:55 - edge-tts fallback failed: 403, message='Invalid response status', url='wss://speech.platform.bing.com/consumer/speech/synthesize/readaloud/edge/v1?TrustedClientToken=6A5AA1D4EAFF4E9FB37E23D68491D6F4&Sec-MS-GEC=B86D3C7C8FAA0966DE2ABED6C612C95A2950E521A39DA084F88B9F6E7A8F8119&Sec-MS-GEC-Version=1-130.0.2849.68&ConnectionId=040774367e7444e5875c89ab4ec0a455'
+2026-09-05 23:47:54,275 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\voice_call_agent.py:38 - Voice failed for EVT_0022, falling back to text nudge
+2026-09-05 23:47:54,377 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py:92 - Graph invocation failed for event EVT_0022: name 'send_text_nudge' is not defined
+Traceback (most recent call last):
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py", line 89, in run_single_event
+    final_state = self.graph.invoke(raw_event, config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1936, in invoke
+    for chunk in self.stream(
+                 ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1656, in stream
+    for _ in runner.tick(
+             ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\runner.py", line 167, in tick
+    run_with_retry(
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\retry.py", line 40, in run_with_retry
+    return task.proc.invoke(task.input, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 408, in invoke
+    input = step.invoke(input, config, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\utils\runnable.py", line 184, in invoke
+    ret = context.run(self.func, input, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\voice_call_agent.py", line 39, in voice_call
+    return send_text_nudge(state)  # reuse text nudge; will increment attempt
+           ^^^^^^^^^^^^^^^
+NameError: name 'send_text_nudge' is not defined
+During task with name 'voice_call' and id '5345b7c6-b402-fc90-2b44-88e4421cf942'
+
+2026-09-05 23:47:54,406 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0023
+2026-09-05 23:47:54,413 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0023
+2026-09-05 23:47:54,447 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0024
+2026-09-05 23:47:54,452 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0024
+2026-09-05 23:47:56,498 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0024: Namaste Customer 24, aapka Spotify payment ₹199.00...
+2026-09-05 23:47:58,542 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0024: Namaste Customer 24, aapka Spotify payment ₹199.00...
+2026-09-05 23:47:58,579 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0025
+2026-09-05 23:47:58,607 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0026
+2026-09-05 23:47:58,613 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0026
+2026-09-05 23:48:00,658 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0026: Namaste Customer 26, aapka GymFlex payment ₹4999.0...
+2026-09-05 23:48:00,685 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0027
+2026-09-05 23:48:00,689 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0027
+2026-09-05 23:48:02,733 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0027: Namaste Customer 27, aapka Netflix India payment ₹...
+2026-09-05 23:48:04,778 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0027: Namaste Customer 27, aapka Netflix India payment ₹...
+2026-09-05 23:48:04,806 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0028
+2026-09-05 23:48:04,811 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0028
+2026-09-05 23:48:06,834 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0028: Namaste Customer 28, aapka Spotify payment ₹199.00...
+2026-09-05 23:48:06,861 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0029
+2026-09-05 23:48:06,890 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0030
+2026-09-05 23:48:06,896 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0030
+2026-09-05 23:48:06,925 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0031
+2026-09-05 23:48:06,931 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0031
+2026-09-05 23:48:08,974 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0031: Namaste Customer 31, aapka GymFlex payment ₹499.00...
+2026-09-05 23:48:11,007 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0031: Namaste Customer 31, aapka GymFlex payment ₹499.00...
+2026-09-05 23:48:11,035 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0032
+2026-09-05 23:48:11,064 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0033
+2026-09-05 23:48:11,070 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0033
+2026-09-05 23:48:11,098 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0034
+2026-09-05 23:48:11,103 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0034
+2026-09-05 23:48:11,133 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0035
+2026-09-05 23:48:11,138 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0035
+2026-09-05 23:48:13,191 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0035: Namaste Customer 35, aapka Spotify payment ₹499.00...
+2026-09-05 23:48:15,254 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0035: Namaste Customer 35, aapka Spotify payment ₹499.00...
+2026-09-05 23:48:15,281 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0036
+2026-09-05 23:48:15,286 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0036
+2026-09-05 23:48:17,314 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0036: Namaste Customer 36, aapka EMI Card payment ₹199.0...
+2026-09-05 23:48:19,359 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0036: Namaste Customer 36, aapka EMI Card payment ₹199.0...
+2026-09-05 23:48:21,442 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0037: Namaste Customer 37, aapka Hotstar payment ₹999.00...
+2026-09-05 23:48:21,446 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0037
+2026-09-05 23:48:21,450 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0037
+2026-09-05 23:48:23,477 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0037: Namaste Customer 37, aapka Hotstar payment ₹999.00...
+2026-09-05 23:48:23,502 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0038
+2026-09-05 23:48:23,506 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0038
+2026-09-05 23:48:23,534 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0039
+2026-09-05 23:48:23,539 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0039
+2026-09-05 23:48:25,567 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0039: Namaste Customer 39, aapka Spotify payment ₹999.00...
+2026-09-05 23:48:25,596 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0040
+2026-09-05 23:48:25,601 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0040
+2026-09-05 23:48:27,630 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0040: Namaste Customer 40, aapka Netflix India payment ₹...
+2026-09-05 23:48:29,663 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0040: Namaste Customer 40, aapka Netflix India payment ₹...
+2026-09-05 23:48:29,698 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0041
+2026-09-05 23:48:29,703 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0041
+2026-09-05 23:48:31,747 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0041: Namaste Customer 41, aapka EMI Card payment ₹199.0...
+2026-09-05 23:48:33,788 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0041: Namaste Customer 41, aapka EMI Card payment ₹199.0...
+2026-09-05 23:48:33,814 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0042
+2026-09-05 23:48:33,820 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0042
+2026-09-05 23:48:35,862 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0042: Namaste Customer 42, aapka EMI Card payment ₹499.0...
+2026-09-05 23:48:37,897 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0042: Namaste Customer 42, aapka EMI Card payment ₹499.0...
+2026-09-05 23:48:37,930 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0043
+2026-09-05 23:48:37,935 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0043
+2026-09-05 23:48:37,964 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0044
+2026-09-05 23:48:37,969 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0044
+2026-09-05 23:48:37,998 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0045
+2026-09-05 23:48:38,003 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0045
+2026-09-05 23:48:38,032 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0046
+2026-09-05 23:48:38,060 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0047
+2026-09-05 23:48:38,087 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0048
+2026-09-05 23:48:38,116 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0049
+2026-09-05 23:48:38,145 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0050
+2026-09-05 23:48:38,176 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0051
+2026-09-05 23:48:38,207 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0052
+2026-09-05 23:48:38,239 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0053
+2026-09-05 23:48:38,270 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0054
+2026-09-05 23:48:38,302 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0055
+2026-09-05 23:48:38,331 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0056
+2026-09-05 23:48:38,359 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0057
+2026-09-05 23:48:38,391 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0058
+2026-09-05 23:48:38,421 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0059
+2026-09-05 23:48:38,449 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0060
+2026-09-05 23:48:38,479 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0061
+2026-09-05 23:48:38,509 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0062
+2026-09-05 23:48:38,538 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0063
+2026-09-05 23:48:38,565 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0064
+2026-09-05 23:48:38,594 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0065
+2026-09-05 23:48:38,613 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0066
+2026-09-05 23:48:40,710 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0067
+2026-09-05 23:48:42,787 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0068
+2026-09-05 23:48:44,825 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0069
+2026-09-05 23:48:46,879 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0070
+2026-09-05 23:48:48,955 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0071
+2026-09-05 23:48:51,021 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0072
+2026-09-05 23:48:53,109 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0073
+2026-09-05 23:48:55,176 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0074
+2026-09-05 23:48:57,231 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0075
+2026-09-05 23:48:59,308 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0076
+2026-09-05 23:49:01,361 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0077
+2026-09-05 23:49:03,413 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0078
+2026-09-05 23:49:05,476 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0079
+2026-09-05 23:49:07,544 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0080
+2026-09-05 23:49:09,589 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0081
+2026-09-05 23:49:11,653 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0082
+2026-09-05 23:49:13,710 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0083
+2026-09-05 23:49:15,764 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0084
+2026-09-05 23:49:17,808 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0085
+2026-09-05 23:49:19,859 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0086
+2026-09-05 23:49:21,905 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0087
+2026-09-05 23:49:23,965 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0088
+2026-09-05 23:49:26,052 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0089
+2026-09-05 23:49:28,104 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0090
+2026-09-05 23:49:30,308 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0101
+2026-09-05 23:49:32,384 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0102
+2026-09-05 23:49:34,461 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0103
+2026-09-05 23:49:36,523 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0104
+2026-09-05 23:49:38,588 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0105
+2026-09-05 23:49:40,641 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0106
+2026-09-05 23:49:42,703 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0107
+2026-09-05 23:49:44,794 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0108
+2026-09-05 23:49:46,876 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0109
+2026-09-05 23:49:46,882 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0109
+2026-09-05 23:49:46,913 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0110
+2026-09-05 23:49:46,918 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0110
+2026-09-05 23:49:46,947 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0111
+2026-09-05 23:49:46,952 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0111
+2026-09-05 23:49:46,981 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0112
+2026-09-05 23:49:46,987 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0112
+2026-09-05 23:49:47,015 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0113
+2026-09-05 23:49:47,021 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0113
+2026-09-05 23:49:47,052 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0114
+2026-09-05 23:49:47,057 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0114
+2026-09-05 23:49:47,087 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0115
+2026-09-05 23:49:47,092 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0115
+2026-09-05 23:49:49,153 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0116
+2026-09-05 23:49:51,194 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0116: Namaste Customer 116, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:49:53,242 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0117: Namaste Customer 117, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:49:55,338 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0118: Namaste Customer 118, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:49:57,411 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0119: Namaste Customer 119, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:49:59,454 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0119: Namaste Customer 119, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:50:01,512 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0119: Namaste Customer 119, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:50:03,585 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0119: Namaste Customer 119, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:50:05,617 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0119: Namaste Customer 119, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:50:07,756 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0120: Namaste Customer 120, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:09,801 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0120: Namaste Customer 120, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:11,896 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0121: Namaste Customer 121, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:50:13,956 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:16,022 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:18,101 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:20,135 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:22,196 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:24,222 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:26,265 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0122
+2026-09-05 23:50:26,268 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py:92 - Graph invocation failed for event EVT_0122: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+Traceback (most recent call last):
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py", line 89, in run_single_event
+    final_state = self.graph.invoke(raw_event, config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1936, in invoke
+    for chunk in self.stream(
+                 ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1676, in stream
+    raise GraphRecursionError(msg)
+langgraph.errors.GraphRecursionError: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+
+2026-09-05 23:50:28,314 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:30,342 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:32,392 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:34,452 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:36,474 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:38,505 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0123: Namaste Customer 123, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:40,579 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0124: Namaste Customer 124, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:50:42,642 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0124: Namaste Customer 124, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:50:44,662 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0124: Namaste Customer 124, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:50:46,727 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0124: Namaste Customer 124, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:50:48,779 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0125: Namaste Customer 125, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:50:50,858 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0126: Namaste Customer 126, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:52,924 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0126: Namaste Customer 126, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:54,970 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0126: Namaste Customer 126, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:57,019 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0126: Namaste Customer 126, aapka cart ₹2999.00 ka pendi...
+2026-09-05 23:50:59,071 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\checkout_retarget_agent.py:49 - Checkout retarget sent for EVT_0127
+2026-09-05 23:51:01,116 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0127: Namaste Customer 127, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:03,147 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0127: Namaste Customer 127, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:05,218 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0128: Namaste Customer 128, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:07,254 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0128: Namaste Customer 128, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:09,320 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0128: Namaste Customer 128, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:11,403 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:13,452 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:15,516 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:17,553 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:19,596 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:21,657 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:23,697 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0129: Namaste Customer 129, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:23,700 - aarohan - ERROR - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py:92 - Graph invocation failed for event EVT_0129: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+Traceback (most recent call last):
+  File "C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\core\orchestrator.py", line 89, in run_single_event
+    final_state = self.graph.invoke(raw_event, config=config)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1936, in invoke
+    for chunk in self.stream(
+                 ^^^^^^^^^^^^
+  File "C:\Users\diksh\AppData\Local\Programs\Python\Python312\Lib\site-packages\langgraph\pregel\__init__.py", line 1676, in stream
+    raise GraphRecursionError(msg)
+langgraph.errors.GraphRecursionError: Recursion limit of 25 reached without hitting a stop condition. You can increase the limit by setting the `recursion_limit` config key.
+For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/errors/GRAPH_RECURSION_LIMIT
+
+2026-09-05 23:51:25,751 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0130: Namaste Customer 130, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:27,792 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0130: Namaste Customer 130, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:29,875 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0131: Namaste Customer 131, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:51:31,906 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0131: Namaste Customer 131, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:51:33,931 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0131: Namaste Customer 131, aapka cart ₹999.00 ka pendin...
+2026-09-05 23:51:36,027 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0132: Namaste Customer 132, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:38,083 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0132: Namaste Customer 132, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:40,120 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0132: Namaste Customer 132, aapka cart ₹1499.00 ka pendi...
+2026-09-05 23:51:42,164 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0133: Namaste Customer 133, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:44,210 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0134: Namaste Customer 134, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:46,268 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0135: Namaste Customer 135, aapka cart ₹5999.00 ka pendi...
+2026-09-05 23:51:46,289 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0136
+2026-09-05 23:51:48,347 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0137
+2026-09-05 23:51:50,412 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0138
+2026-09-05 23:51:52,458 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0139
+2026-09-05 23:51:54,495 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0140
+2026-09-05 23:51:56,560 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0141
+2026-09-05 23:51:58,617 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0142
+2026-09-05 23:52:00,656 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0143
+2026-09-05 23:52:02,704 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0144
+2026-09-05 23:52:04,740 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0145
+2026-09-05 23:52:06,787 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0146
+2026-09-05 23:52:08,847 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0147
+2026-09-05 23:52:10,887 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0148
+2026-09-05 23:52:12,943 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0149
+2026-09-05 23:52:15,015 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:73 - Failure not matched by rules, using LLM for event EVT_0150
+2026-09-05 23:52:17,067 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\scripts\run_batch.py:74 - Results saved to data\evaluation_results.json
+2026-09-05 23:52:25,961 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 23:52:27,573 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:52:27,573 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:52:27,621 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 23:52:27,639 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 23:52:34,446 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 23:52:35,839 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:52:35,840 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:52:35,868 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 23:53:11,416 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 23:53:12,899 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:53:12,899 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:53:12,951 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 23:53:12,970 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.
+2026-09-05 23:53:18,493 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-05 23:53:19,652 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:53:19,652 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\models\saved_models\ranker.pkl
+2026-09-05 23:53:19,676 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-05 23:53:19,687 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\utils\db.py:22 - Database tables created.

@@ -45,7 +45,7 @@ def main():
         logger.error(f"Input file {input_path} not found. Run generate_batch.py first.")
         return
 
-    events = load_events(input_path)[:5]
+    events = load_events(input_path)
     logger.info(f"Loaded {len(events)} events from {input_path}")
 
     results = orchestrator.run_batch(events)
