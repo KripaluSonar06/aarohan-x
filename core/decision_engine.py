@@ -63,12 +63,18 @@ def select_optimal_action(
         cost = channel_costs.get(action, 0.0)
         # Stopping is the fallback outcome, not a recovery action. It must
         # not receive the same gross-recovery value as an intervention.
-        ev = 0.0 if action == "stop" else compute_ev(recovery_probability, amount_paise, cost)
+        action_probability = recovery_probability
+        # Voice has a higher response likelihood for high-value funds cases:
+        # it is more interruptive, but remains cost-effective only when its
+        # modeled uplift covers the additional channel cost.
+        if action == "voice_call" and amount_paise >= 50000 and recovery_probability >= 0.5:
+            action_probability = min(recovery_probability + 0.08, 0.95)
+        ev = 0.0 if action == "stop" else compute_ev(action_probability, amount_paise, cost)
         ev_list.append({
             "action": action,
             "cost": cost,
             "ev": ev,
-            "probability": recovery_probability,
+            "probability": action_probability,
             "net_positive": action != "stop" and ev > 0,
         })
 

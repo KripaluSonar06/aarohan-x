@@ -43,6 +43,23 @@ RULES = {
     "daily_limit": EventClass.LIMIT,
 }
 
+DESCRIPTION_RULES = (
+    ("insufficient funds", EventClass.FUNDS),
+    ("payment timed out", EventClass.DOWNTIME),
+    ("bank not responding", EventClass.DOWNTIME),
+    ("technical decline", EventClass.DOWNTIME),
+    ("deemed_approval_failed", EventClass.DOWNTIME),
+    ("deemed approval failed", EventClass.DOWNTIME),
+    ("npci", EventClass.DOWNTIME),
+    ("mandate validation failed", EventClass.MANDATE_DEAD),
+    ("mandate has been revoked", EventClass.MANDATE_DEAD),
+    ("card has expired", EventClass.INSTRUMENT_DEAD),
+    ("daily upi limit", EventClass.LIMIT),
+    ("upi limit", EventClass.LIMIT),
+    ("transaction flagged for risk", EventClass.RISK),
+    ("cancelled by user", EventClass.CUSTOMER_CANCEL),
+)
+
 def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
     if not isinstance(state, dict):
         logger.error(f"diagnose_failed_payment received non-dict state: {type(state)}")
@@ -60,9 +77,19 @@ def diagnose_failed_payment(state: Dict[str, Any]) -> Dict[str, Any]:
         state["diagnosis_reason"] = f"Failure code matched: {code}"
         return state
 
+    # Match the merchant's human-readable failure description before using LLM fallback.
+    for phrase, event_class in DESCRIPTION_RULES:
+        if phrase in desc or phrase in normalized_desc:
+            state["diagnosed_class"] = event_class
+            state["diagnosis_confidence"] = 0.9
+            state["diagnosis_source"] = "rules"
+            state["diagnosis_reason"] = f"Failure description matched: {phrase}"
+            return state
+
     # Check description keywords
     for keyword, event_class in RULES.items():
-        if keyword in desc or keyword in normalized_desc:
+        keyword_phrase = keyword.replace("_", " ")
+        if keyword in desc or keyword in normalized_desc or keyword_phrase in desc:
             state["diagnosed_class"] = event_class
             state["diagnosis_confidence"] = 0.85
             state["diagnosis_source"] = "rules"

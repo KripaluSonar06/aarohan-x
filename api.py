@@ -55,17 +55,30 @@ def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
     communications = []
     seen_communications = set()
     for entry in sorted(event.ledger, key=lambda item: item.timestamp or datetime.min):
-        if entry.action in {"text_nudge_sent", "voice_call_completed", "voice_call_failed_fallback_to_text", "text_nudge_blocked"}:
+        if entry.action in {
+            "text_nudge_sent",
+            "voice_call_completed",
+            "voice_call_failed_fallback_to_text",
+            "voice_call_blocked",
+            "text_nudge_blocked",
+        }:
             communication_key = entry.idempotency_key or f"{entry.action}:{entry.timestamp}"
             if communication_key in seen_communications:
                 continue
             seen_communications.add(communication_key)
             detail = entry.detail or {}
+            is_voice = entry.action.startswith("voice_call")
+            detail = entry.detail or {}
             communications.append({
-                "channel": "text" if "text" in entry.action else "voice",
+                "channel": "voice" if is_voice else "text",
                 "action": entry.action,
-                "status": "sent" if entry.action in {"text_nudge_sent", "voice_call_completed"} else "fallback",
-                "message": detail.get("message"),
+                "status": (
+                    "completed" if entry.action == "voice_call_completed"
+                    else "failed" if entry.action == "voice_call_failed_fallback_to_text"
+                    else "blocked" if entry.action in {"voice_call_blocked", "text_nudge_blocked"}
+                    else "sent"
+                ),
+                "message": detail.get("message") or detail.get("reason"),
                 "transcript": detail.get("transcript"),
                 "timestamp": entry.timestamp.isoformat() if entry.timestamp else "",
             })
@@ -87,8 +100,20 @@ def serialize_event(event: RecoveryEvent) -> Dict[str, Any]:
         "channel_cost_inr": event.channel_cost or 0,
         "net_expected_value_inr": (event.net_expected_value or 0) / 100,
         "decision_explanation": policy_decision.get("explanation"),
+        "decision_detail": policy_decision,
+        "ptp": {
+            "promised_date": event.ptp_date.isoformat() if event.ptp_date else None,
+            "count": event.ptp_count or 0,
+            "broken": bool(event.ptp_broken),
+        },
         "ledger": [
-            {"action": entry.action, "detail": entry.detail or {}, "timestamp": entry.timestamp.isoformat() if entry.timestamp else ""}
+            {
+                "action": entry.action,
+                "detail": entry.detail or {},
+                "timestamp": entry.timestamp.isoformat() if entry.timestamp else "",
+                "cost": entry.cost or 0,
+                "idempotency_key": entry.idempotency_key,
+            }
             for entry in sorted(event.ledger, key=lambda item: item.timestamp or datetime.min)
         ],
     })
@@ -122,13 +147,19 @@ def metrics() -> Dict[str, Any]:
             event.attempts_contact * (5.0 if event.playbook_action == "voice_call" else 0.10)
             for event in latest_events
         )
+        natural_baseline = int(total * 0.40)
         return {
             "total_at_risk_paise": int(total),
             "gross_recovered_paise": int(recovered),
             "contact_cost_inr": float(cost),
             "net_recovered_paise": int(recovered) - int(float(cost) * 100),
+            "natural_baseline_paise": natural_baseline,
+            "incremental_recovery_paise": int(recovered) - natural_baseline,
+            "incremental_recovery_rate": round(((int(recovered) - natural_baseline) / int(total)) * 100, 2) if total else 0,
             "events_recovered": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "recovered").count(),
             "events_needs_human": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.status == "needs_human").count(),
+            "ptp_promises": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.ptp_count > 0).count(),
+            "broken_ptps": db.query(RecoveryEvent).filter(RecoveryEvent.id.in_(latest_ids), RecoveryEvent.ptp_broken.is_(True)).count(),
         }
     finally:
         db.close()
@@ -144,12 +175,15 @@ def analytics() -> Dict[str, Any]:
         action_counts: Dict[str, int] = {}
         diagnosis_counts: Dict[str, int] = {}
         recovered_by_action: Dict[str, int] = {}
+        action_recovery_counts: Dict[str, int] = {}
         confidence_buckets = {"high": 0, "medium": 0, "low": 0}
         for event in events:
             status_counts[event.status] = status_counts.get(event.status, 0) + 1
             action = event.playbook_action or "not_selected"
             action_counts[action] = action_counts.get(action, 0) + 1
             recovered_by_action[action] = recovered_by_action.get(action, 0) + event.recovered_amount_paise
+            if event.status == "recovered":
+                action_recovery_counts[action] = action_recovery_counts.get(action, 0) + 1
             diagnosis = event.diagnosed_class or "unknown"
             diagnosis_counts[diagnosis] = diagnosis_counts.get(diagnosis, 0) + 1
             confidence = event.diagnosis_confidence or 0
@@ -165,6 +199,19 @@ def analytics() -> Dict[str, Any]:
             ],
             "statuses": status_counts,
             "actions": [{"name": key, "events": value, "recovered_paise": recovered_by_action[key]} for key, value in action_counts.items()],
+            "learning": {
+                "enabled": True,
+                "method": "contextual epsilon-greedy tie-breaker",
+                "exploration_rate": 0.1,
+                "action_outcomes": {
+                    key: {
+                        "events": value,
+                        "recovered_events": action_recovery_counts.get(key, 0),
+                        "recovery_rate": round(action_recovery_counts.get(key, 0) / value * 100, 1) if value else 0,
+                    }
+                    for key, value in action_counts.items()
+                },
+            },
             "diagnoses": diagnosis_counts,
             "confidence": confidence_buckets,
         }

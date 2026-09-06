@@ -21,6 +21,8 @@ export type BackendCase = {
   net_expected_value_inr: number
   decision_explanation?: string
   ledger: { action: string; detail: Record<string, unknown>; timestamp: string }[]
+  ptp?: { promised_date: string | null; count: number; broken: boolean }
+  decision_detail?: Record<string, unknown>
 }
 
 export type Metrics = {
@@ -30,6 +32,11 @@ export type Metrics = {
   net_recovered_paise: number
   events_recovered: number
   events_needs_human: number
+  natural_baseline_paise: number
+  incremental_recovery_paise: number
+  incremental_recovery_rate: number
+  ptp_promises: number
+  broken_ptps: number
 }
 
 export type Analytics = {
