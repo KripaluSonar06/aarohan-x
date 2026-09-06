@@ -4220,3 +4220,13 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2026-09-06 12:44:58,447 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
 2026-09-06 12:44:58,794 - aarohan - WARNING - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
 2026-09-06 12:44:58,800 - aarohan - INFO - C:\Git Clone\aarohan-x.worktrees\improving-recovery-results-analysis\agents\diagnosis_agent.py:100 - Failure not matched by rules, using LLM for event T2
+2026-09-06 23:22:45,557 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-06 23:22:47,280 - aarohan - INFO - C:\Git Clone\aarohan-x\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:22:47,281 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:22:47,323 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-06 23:22:47,351 - aarohan - INFO - C:\Git Clone\aarohan-x\utils\db.py:22 - Database tables created.
+2026-09-06 23:23:25,852 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:18 - GROQ_API_KEY not set. LLM features will use local Ollama if available.
+2026-09-06 23:23:26,912 - aarohan - INFO - C:\Git Clone\aarohan-x\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:23:26,912 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:23:26,937 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
+2026-09-06 23:23:26,948 - aarohan - INFO - C:\Git Clone\aarohan-x\utils\db.py:22 - Database tables created.
