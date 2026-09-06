@@ -18,7 +18,6 @@ from scripts.experiment import run_experiments
 
 init_db()
 app = FastAPI(title="Aarohan-X Recovery API", version="1.0.0")
-CURRENT_BATCH_SIZE = 5
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
@@ -46,7 +45,6 @@ def _latest_events(db) -> list[RecoveryEvent]:
     return (
         db.query(RecoveryEvent)
         .order_by(RecoveryEvent.updated_at.desc(), RecoveryEvent.created_at.desc())
-        .limit(CURRENT_BATCH_SIZE)
         .all()
     )
 
@@ -221,9 +219,9 @@ def update_policy(request: PolicyUpdate) -> Dict[str, Any]:
 
 @app.post("/api/run-batch")
 def run_batch() -> Dict[str, Any]:
-    """Run the same five-event evaluation sample used by the command center."""
+    """Process the full configured recovery queue."""
     input_path = Path(__file__).parent / "scripts" / "data" / "batch_150.csv"
-    events = load_events(input_path)[:5]
+    events = load_events(input_path)
     return orchestrator.run_batch(events)
 
 
