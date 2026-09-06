@@ -166,6 +166,15 @@ Use Hinglish (Roman Hindi + English). Max 3 sentences."""
 
     def parse_customer_response(self, text: str) -> Dict[str, Any]:
         """Parse customer's spoken/written reply into structured outcome."""
+        normalized = text.lower().strip()
+        if any(token in normalized for token in ("stop calling", "mat call karo", "unsubscribe", "band karo")):
+            return {"type": "do_not_contact", "date": None, "confidence": 0.95}
+        if any(token in normalized for token in ("5 tarikh", "pay on", "de dunga", "kar dunga", "will pay")):
+            from datetime import date, timedelta
+            promised_date = date.today() + timedelta(days=5)
+            return {"type": "promised", "date": promised_date.isoformat(), "confidence": 0.9}
+        if any(token in normalized for token in ("paid now", "abhi pay", "already paid")):
+            return {"type": "paid_now", "date": None, "confidence": 0.9}
         prompt = f"""Parse this customer response to a payment reminder.
 Response: "{text}"
 Classify into:

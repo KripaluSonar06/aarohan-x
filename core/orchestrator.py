@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from uuid import uuid4
 from config.logger import logger
 from core.graph import batch_graph_app, graph_app
-from models.entities import RecoveryEvent, LedgerEntry
+from models.entities import RecoveryEvent, LedgerEntry, PTPRecord
 from utils.db import SessionLocal
 
 
@@ -247,7 +247,22 @@ class BatchOrchestrator:
                     cost=entry.get("cost", 0.0),
                 )
                 db.add(ledger_entry)
-
+            if state.get("ptp_date") and state.get("customer_id"):
+                existing_ptp = db.query(PTPRecord).filter(
+                    PTPRecord.event_id == event_id,
+                    PTPRecord.broken.is_(False),
+                ).first()
+                if not existing_ptp:
+                    promised_date = state["ptp_date"]
+                    if isinstance(promised_date, str):
+                        from dateutil import parser
+                        promised_date = parser.parse(promised_date)
+                    db.add(PTPRecord(
+                        event_id=event_id,
+                        customer_id=state["customer_id"],
+                        promised_date=promised_date,
+                        broken=False,
+                    ))
             db.commit()
         except Exception as e:
             logger.error(f"Failed to save event {state.get('event_id')} to DB: {e}")
