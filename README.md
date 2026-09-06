@@ -70,7 +70,7 @@ ingest
   -> execute selected action
   -> settlement verification
   -> continue, stop, escalate, or request human review
-```
+
 
 Supported execution branches include:
 
@@ -292,7 +292,7 @@ The current evaluation baseline assumes 40% natural recovery:
 Incremental recovery = gross recovered − natural baseline
 ```
 
-For a production deployment, the same interface can consume a randomized treatment/control experiment instead of the current deterministic baseline.
+For a production deployment, the same interface can consume a randomized treatment/control experiment instead of the current deterministic baseline. In our demo, we also show how to run a control group by disabling interventions on a copy of the batch, giving a true treatment vs. control lift.
 
 ### 13. Contextual bandit learning
 
@@ -363,71 +363,80 @@ It is local and does not require an external API key.
 
 ---
 
-## Why Aarohan-X can win the Razorpay Buildathon
+## What we deliberately did not build (and why)
 
-Aarohan-X is not just a retry script or a chatbot. It demonstrates a complete financial-AI product:
+We focused on **five** of the seven example directions from the Track 03 brief because they share a common pipeline and could be built with depth. The excluded ones are:
 
-### Financial impact
+- **B2B receivables chaser** – requires invoice/ERP integration, different compliance (MSME Act, DPDP), and a fundamentally different data model. It would dilute the core product in a six-day build.
+- **Fraud-ring sentinel / abuse detection** – that is Track 02 territory and requires a labeled fraud corpus we did not have. We do, however, include risk flags and stop rules for suspected fraud/chargebacks.
 
-It optimizes net recovered revenue instead of maximizing contact volume or gross recovery alone.
+Honest scoping demonstrates engineering judgment: it’s better to build five directions well than seven superficially.
 
-### Real AI orchestration
+---
 
-LangGraph coordinates a multi-step, stateful recovery workflow. LangChain-compatible services provide structured LLM capabilities where language understanding adds value.
+## Why we didn’t use deep reinforcement learning
 
-### Responsible AI
+We intentionally chose a lightweight contextual bandit over deep RL because:
 
-The product uses deterministic diagnosis rules, EV calculations, policy gates, confidence checks, human review, DND protection, quiet hours, and audit trails.
+- we have no live traffic and no reward signal that converges in six days;
+- a fake PPO loop on synthetic data would be a disqualifier, not a flex;
+- the decision framework (cost-aware EV) already provides a strong baseline;
+- the bandit only refines choices among policy-approved actions, keeping safety intact.
 
-### Explainability
+In a payments product, learning should optimize within a safe action set, not explore unsafe behavior.
 
-Every decision can answer:
+---
 
-- Why was this action selected?
-- Why were alternatives rejected?
-- What was the expected value?
-- What would have changed the decision?
-- What did the customer communication contain?
+## Designed failure demonstration
 
-### India-first customer experience
+During the demo, we deliberately simulate a **voice TTS timeout**:
 
-Hinglish communication, voice workflows, UPI/payment failure categories, Indian Rupee economics, and local customer behavior make the product relevant to Razorpay’s ecosystem.
+1. Voice call initiated → TTS service times out.
+2. Execution Agent detects failure, retries once.
+3. Second timeout.
+4. Fallback policy triggers: sends SMS instead.
+5. Audit ledger records both failures and the fallback.
+6. Recovery continues and payment is eventually recovered via SMS link.
 
-### Complete product surface
+This demonstrates **graceful degradation** and that the system remains **money-safe** even when a component fails. It is shown live in the judge walkthrough.
 
-The project includes an operator-facing dashboard, not only a backend model:
+---
 
-- merchant controls;
-- exception management;
-- experiments;
-- PTP tracking;
-- recovery analytics;
-- audit history;
-- real-time outcome visibility.
+## Sample results (from local batch)
 
-### Demo reliability
+| Metric | Value |
+|--------|-------|
+| Total at risk | ₹2,93,050 |
+| Gross recovered | ₹2,06,999 |
+| Net recovered | ₹2,06,843.2 |
+| Incremental more recovery (vs. 40% baseline) | +₹89,779 |
+| Exceptions & Verification needed | 31 |
+| Broken PTPs | 22 |
 
-The build runs in simulation mode without requiring live payment or telephony credentials. This makes the core workflow reproducible during judging while keeping integration points ready for Razorpay and voice providers.
+---
 
-### Strong judge demo narrative
+## Code quality
 
-The best demonstration is:
+- The workflow state is typed (`RecoveryState`).
+- Agents are isolated into separate modules with clear responsibilities.
+- A comprehensive test suite (`pytest`) covers decision engine, diagnosis, gates, PTP, idempotency, and bandit.
+- The code is structured for extension: new execution agents or policies can be added without modifying the core graph.
+- All money-touching actions are gated by deterministic policy code, not LLM output.
+- The UI fetches from live APIs; no hardcoded metrics.
 
-1. Open the Command Center.
-2. Show amount at risk, gross recovery, net recovery, incremental impact, and PTP summary.
-3. Open Cases and show a payment diagnosis, action, Hinglish communication, and call transcript.
-4. Open Exceptions and verify a human-review case.
-5. Open PTP Tracker and show promise dates and audit history.
-6. Open Strategy Lab and compare recovery strategies.
-7. Open Policy Center and change a safety boundary.
-8. Ask Recovery Copilot why a case was handled that way.
+---
 
-This tells a complete story:
+## Razorpay test mode readiness
 
-```text
-payment failure -> diagnosis -> governed decision -> customer action
--> settlement -> promise tracking -> audit -> merchant insight
-```
+The `razorpay_client` wrapper is designed to work with Razorpay test keys by default and can be switched to production keys with environment changes. The code already includes payment link creation and payment verification methods. We do not hardcode simulated results; simulation is only used when Razorpay credentials are absent, and the portal labels simulated outcomes clearly.
+
+---
+
+## Observability
+
+- Logs are written under `logs/`.
+- Optional LangSmith tracing can be enabled to inspect LLM calls, workflow paths, and latency.
+- Every LLM call and graph step is traceable when tracing is enabled, demonstrating a production-minded approach to observability.
 
 ---
 
@@ -618,7 +627,6 @@ Create a `.env` file in the project root:
 ```env
 # Optional hosted LLM
 GROQ_API_KEY=
-GROQ_MODEL=llama-3.1-8b-instant
 
 # Optional local LLM fallback
 OLLAMA_BASE_URL=http://localhost:11434
@@ -637,7 +645,7 @@ RAZORPAY_KEY_SECRET=
 SARVAM_API_KEY=
 ```
 
-The product works in local simulation mode without these credentials.
+The product also works in local simulation mode without these credentials.
 
 ### 5. Process the recovery queue
 
@@ -917,26 +925,6 @@ Invoke-RestMethod http://127.0.0.1:8000/api/health
 Invoke-RestMethod http://127.0.0.1:8000/api/metrics
 Invoke-RestMethod http://127.0.0.1:8000/api/cases
 ```
-
----
-
-## Observability
-
-Logs are written under:
-
-```text
-logs/
-```
-
-Optional LangSmith tracing can be enabled with:
-
-```env
-LANGSMITH_TRACING_V2=true
-LANGSMITH_API_KEY=your_key
-LANGSMITH_PROJECT=aarohan-x
-```
-
-Tracing is useful for inspecting LLM calls, workflow paths, and latency during development. Do not send sensitive production customer data to an external tracing service without appropriate privacy controls.
 
 ---
 
