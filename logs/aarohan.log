@@ -4230,3 +4230,116 @@ For troubleshooting, visit: https://python.langchain.com/docs/troubleshooting/er
 2026-09-06 23:23:26,912 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
 2026-09-06 23:23:26,937 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\razorpay_client.py:19 - Razorpay keys not set. Using simulation mode.
 2026-09-06 23:23:26,948 - aarohan - INFO - C:\Git Clone\aarohan-x\utils\db.py:22 - Database tables created.
+2026-09-06 23:45:04,334 - aarohan - INFO - C:\Git Clone\aarohan-x\models\ranker_model.py:34 - Loaded ranker model from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:45:04,334 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\ranking_agent.py:20 - Loaded pre-trained ranker from C:\Git Clone\aarohan-x\models\saved_models\ranker.pkl
+2026-09-06 23:45:04,357 - aarohan - INFO - C:\Git Clone\aarohan-x\services\razorpay_client.py:17 - Razorpay test client initialized.
+2026-09-06 23:45:04,368 - aarohan - INFO - C:\Git Clone\aarohan-x\utils\db.py:22 - Database tables created.
+2026-09-05 23:16:39,010 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 23:16:39,037 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0002
+2026-09-05 23:16:39,062 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:16:39,067 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:16:39,095 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:16:39,098 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:16:39,125 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 23:16:39,147 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0001
+2026-09-05 23:16:40,919 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:16:42,339 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:16:43,967 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:16:45,472 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:16:47,245 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:16:51,340 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:16:52,886 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:16:54,389 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:16:56,022 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:16:57,706 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:16:59,298 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:17:03,420 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:17:03,448 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:17:03,454 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0003
+2026-09-05 23:17:04,965 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:17:06,598 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:17:08,225 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:17:09,848 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:17:12,293 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:17:16,389 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:17:17,834 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:17:17,834 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:17:19,476 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:17:21,049 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:17:22,543 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:17:24,118 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:17:25,692 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:17:29,794 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:17:30,795 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:17:30,796 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:17:30,826 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:17:30,831 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:41 - Silent retry failed for EVT_0004
+2026-09-05 23:17:32,800 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:17:34,491 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:17:36,042 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:17:37,648 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:17:39,052 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:17:43,120 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:17:43,761 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:17:43,761 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 23:17:43,812 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\silent_retry_agent.py:38 - Silent retry succeeded for EVT_0005
+2026-09-05 23:17:46,331 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:17:47,976 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:17:49,627 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:17:51,185 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:17:52,766 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:17:56,831 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:17:57,444 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:17:57,444 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0001: Namaste Customer 1, aapka Spotify payment ₹199.00 ...
+2026-09-05 23:17:59,052 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:18:00,603 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:18:02,188 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:18:03,647 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:18:05,251 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:18:09,340 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:18:09,901 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:18:09,902 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0001: Namaste Customer 1, aapka Spotify payment ₹199.00 ...
+2026-09-05 23:18:11,432 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:18:13,070 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:18:14,705 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:18:17,360 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:18:18,915 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:18:22,995 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:18:24,511 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:18:26,225 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:18:27,765 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:18:29,338 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:18:30,787 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:18:34,867 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:18:36,511 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:18:37,989 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:18:39,410 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:18:41,008 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:18:42,632 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:18:46,709 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:18:47,360 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:18:47,360 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:18:48,969 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:18:50,584 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:18:52,260 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:18:53,774 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:18:55,154 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:18:59,231 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:18:59,606 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:18:59,606 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0003: Namaste Customer 3, aapka GymFlex payment ₹4999.00...
+2026-09-05 23:19:01,238 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:19:02,831 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:19:04,512 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:19:06,125 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:19:07,522 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:19:11,589 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:19:11,983 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:19:11,984 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0004: Namaste Customer 4, aapka Hotstar payment ₹199.00 ...
+2026-09-05 23:19:13,656 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model openai/gpt-oss-120b failed: Connection error.
+2026-09-05 23:19:15,210 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model meta-llama/llama-prompt-guard-2-86mllama-3.3-70b-versatile failed: Connection error.
+2026-09-05 23:19:16,720 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model llama-3.1-8b-instant failed: Connection error.
+2026-09-05 23:19:18,199 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model mixtral-8x7b-32768 failed: Connection error.
+2026-09-05 23:19:19,840 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:44 - Groq model gemma2-9b-it failed: Connection error.
+2026-09-05 23:19:23,910 - aarohan - WARNING - C:\Git Clone\aarohan-x\services\llm_service.py:65 - Ollama fallback failed: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/generate (Caused by NewConnectionError("HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-09-05 23:19:24,513 - aarohan - ERROR - C:\Git Clone\aarohan-x\services\razorpay_client.py:39 - Failed to create Razorpay payment link: test mode limit of 30 reached for payment_link
+2026-09-05 23:19:24,514 - aarohan - INFO - C:\Git Clone\aarohan-x\agents\execution\text_nudge_agent.py:47 - Text nudge sent for EVT_0005: Namaste Customer 5, aapka Hotstar payment ₹199.00 ...
